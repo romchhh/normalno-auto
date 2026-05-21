@@ -38,7 +38,15 @@ export default function Hero() {
           fill
           priority
           sizes="100vw"
-          className={styles.bgImage}
+          className={`${styles.bgImage} ${styles.bgDesktop}`}
+        />
+        <Image
+          src="/images/image.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className={`${styles.bgImage} ${styles.bgMobile}`}
         />
       </div>
       <div className={styles.overlay} />
