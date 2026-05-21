@@ -1,0 +1,29 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --deep:  #052C40;
+  --slate: #7c898b;
+  --sky:   #649AAD;
+  --sand:  #e4e2dd;
+  --white: #ffffff;
+  --black: #0a0a0a;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Aileron', 'Helvetica Neue', sans-serif;
+  background: var(--white);
+  color: var(--deep);
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes slowZoom {
+  from { transform: scale(1.04); }
+  to   { transform: scale(1.00); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
