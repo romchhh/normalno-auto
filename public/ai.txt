@@ -1,12 +1,12 @@
-# CardProc
+# WayOfProcessing
 
 > Stripe payment processing for any niche from 1.5%
 
 ## About
 
-CardProc provides Stripe payment processing services worldwide. We offer warmed-up Stripe accounts, payment routing with 99.9% uptime, CRM access, tax-optimized jurisdictions, and unlimited withdrawals in EUR, USD, PLN, USDT and more.
+WayOfProcessing provides Stripe payment processing services worldwide. We offer warmed-up Stripe accounts, payment routing with 99.9% uptime, CRM access, tax-optimized jurisdictions, and unlimited withdrawals in EUR, USD, PLN, USDT and more.
 
-CardProc is an independent service and is not affiliated with, endorsed by, or a subsidiary of Stripe, Inc.
+WayOfProcessing is an independent service and is not affiliated with, endorsed by, or a subsidiary of Stripe, Inc.
 
 ## Key facts
 
@@ -37,58 +37,58 @@ Marketplaces, SaaS, e-commerce, online/offline business, subscriptions, online c
 
 - Hero: accept payments worldwide with Stripe
 - Stats: 1100+ accounts, 7 years, $53M volume
-- Services: https://cardproc.com/#services
-- Advantages: https://cardproc.com/#advantages
-- How we work: https://cardproc.com/#how-we-work
-- Accounts in operation: https://cardproc.com/#accounts
-- Specialists: https://cardproc.com/#specialists
-- Clients: https://cardproc.com/#clients
-- FAQ: https://cardproc.com/#faq
-- Contact: https://cardproc.com/#kontakt
+- Services: https://wayofprocessing.com/#services
+- Advantages: https://wayofprocessing.com/#advantages
+- How we work: https://wayofprocessing.com/#how-we-work
+- Accounts in operation: https://wayofprocessing.com/#accounts
+- Specialists: https://wayofprocessing.com/#specialists
+- Clients: https://wayofprocessing.com/#clients
+- FAQ: https://wayofprocessing.com/#faq
+- Contact: https://wayofprocessing.com/#kontakt
 
 ## Pages
 
-- Home (RU): https://cardproc.com/ru
-- Home (EN): https://cardproc.com/en
-- Blog (RU): https://cardproc.com/ru/blog
-- Blog (EN): https://cardproc.com/en/blog
-- Privacy (RU): https://cardproc.com/ru/privacy
-- Privacy (EN): https://cardproc.com/en/privacy
-- Blog RSS (RU): https://cardproc.com/ru/blog/feed.xml
-- Blog RSS (EN): https://cardproc.com/en/blog/feed.xml
+- Home (RU): https://wayofprocessing.com/ru
+- Home (EN): https://wayofprocessing.com/en
+- Blog (RU): https://wayofprocessing.com/ru/blog
+- Blog (EN): https://wayofprocessing.com/en/blog
+- Privacy (RU): https://wayofprocessing.com/ru/privacy
+- Privacy (EN): https://wayofprocessing.com/en/privacy
+- Blog RSS (RU): https://wayofprocessing.com/ru/blog/feed.xml
+- Blog RSS (EN): https://wayofprocessing.com/en/blog/feed.xml
 
 ## Blog articles (16)
 
-- Stripe для вашего бизнеса: https://cardproc.com/ru/blog/stripe-for-your-business
-- Подключение Stripe через PHP с помощью API: https://cardproc.com/ru/blog/stripe-via-php-api
-- Система быстрых оплат для интернет-магазина: https://cardproc.com/ru/blog/fast-payment-system
-- Какие тематики не подходят для Stripe: https://cardproc.com/ru/blog/business-categories-stripe
-- Stripe Webhooks: полное руководство: https://cardproc.com/ru/blog/stripe-webhooks-guide
-- Stripe Subscriptions для SaaS: https://cardproc.com/ru/blog/stripe-subscriptions-saas
-- Чарджбеки в Stripe: https://cardproc.com/ru/blog/stripe-chargeback-prevention
-- Быстрая система оплат для e-commerce: https://cardproc.com/ru/blog/fast-payment-system-ecommerce
-- Ограниченные ниши Stripe: https://cardproc.com/ru/blog/stripe-restricted-business-categories
-- Правила платёжной системы Stripe: https://cardproc.com/ru/blog/stripe-platform-rules
-- Как выбрать платёжную систему в 2026: https://cardproc.com/ru/blog/how-to-choose-payment-system
-- Интеграция Stripe для WordPress: https://cardproc.com/ru/blog/stripe-wordpress-integration
-- Что такое Stripe и масштабирование бизнеса: https://cardproc.com/ru/blog/what-is-stripe-scaling-business
-- Интеграция Stripe для международных платежей: https://cardproc.com/ru/blog/stripe-international-payments-integration
-- Приём международных платежей для бизнеса: https://cardproc.com/ru/blog/international-payments-for-business
-- Payment routing в Stripe: https://cardproc.com/ru/blog/stripe-payment-routing-uptime
+- Stripe для вашего бизнеса: https://wayofprocessing.com/ru/blog/stripe-for-your-business
+- Подключение Stripe через PHP с помощью API: https://wayofprocessing.com/ru/blog/stripe-via-php-api
+- Система быстрых оплат для интернет-магазина: https://wayofprocessing.com/ru/blog/fast-payment-system
+- Какие тематики не подходят для Stripe: https://wayofprocessing.com/ru/blog/business-categories-stripe
+- Stripe Webhooks: полное руководство: https://wayofprocessing.com/ru/blog/stripe-webhooks-guide
+- Stripe Subscriptions для SaaS: https://wayofprocessing.com/ru/blog/stripe-subscriptions-saas
+- Чарджбеки в Stripe: https://wayofprocessing.com/ru/blog/stripe-chargeback-prevention
+- Быстрая система оплат для e-commerce: https://wayofprocessing.com/ru/blog/fast-payment-system-ecommerce
+- Ограниченные ниши Stripe: https://wayofprocessing.com/ru/blog/stripe-restricted-business-categories
+- Правила платёжной системы Stripe: https://wayofprocessing.com/ru/blog/stripe-platform-rules
+- Как выбрать платёжную систему в 2026: https://wayofprocessing.com/ru/blog/how-to-choose-payment-system
+- Интеграция Stripe для WordPress: https://wayofprocessing.com/ru/blog/stripe-wordpress-integration
+- Что такое Stripe и масштабирование бизнеса: https://wayofprocessing.com/ru/blog/what-is-stripe-scaling-business
+- Интеграция Stripe для международных платежей: https://wayofprocessing.com/ru/blog/stripe-international-payments-integration
+- Приём международных платежей для бизнеса: https://wayofprocessing.com/ru/blog/international-payments-for-business
+- Payment routing в Stripe: https://wayofprocessing.com/ru/blog/stripe-payment-routing-uptime
 
 ## Contact
 
-- Email: hello@cardproc.com
-- Telegram channel: https://t.me/cardproc
-- Telegram operator: https://t.me/cardproc
-- Website: https://cardproc.com
+- Email: hello@wayofprocessing.com
+- Telegram channel: https://t.me/wayofprocessing
+- Telegram operator: https://t.me/wayofprocessing
+- Website: https://wayofprocessing.com
 
 ## SEO & crawling
 
-- Sitemap: https://cardproc.com/sitemap.xml
-- Robots: https://cardproc.com/robots.txt
-- RSS feed: https://cardproc.com/ru/blog/feed.xml
-- LLM info: https://cardproc.com/llms.txt
+- Sitemap: https://wayofprocessing.com/sitemap.xml
+- Robots: https://wayofprocessing.com/robots.txt
+- RSS feed: https://wayofprocessing.com/ru/blog/feed.xml
+- LLM info: https://wayofprocessing.com/llms.txt
 
 ## Attribution
 

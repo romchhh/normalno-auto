@@ -24,8 +24,8 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.35) 45%, rgba(0, 0, 0, 0.08) 100%),
-    linear-gradient(to right, rgba(0, 0, 0, 0.4) 0%, transparent 60%);
+    linear-gradient(to top, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.62) 38%, rgba(0, 0, 0, 0.28) 68%, rgba(0, 0, 0, 0.12) 100%),
+    linear-gradient(to right, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.2) 50%, transparent 75%);
 }
 
 .body {
@@ -51,11 +51,13 @@
   flex-direction: column;
   flex: 1;
   min-width: 0;
+  gap: 20px;
 }
 
 .heroCenter {
   display: flex;
   flex-direction: column;
+  gap: 16px;
 }
 
 .headline {
@@ -65,7 +67,7 @@
   line-height: 1.05;
   color: #fff;
   letter-spacing: -0.03em;
-  margin-bottom: 20px;
+  margin-bottom: 0;
   max-width: 900px;
 }
 
@@ -86,7 +88,7 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 100px;
   padding: clamp(8px, 1.8vw, 12px) clamp(12px, 3.2vw, 22px);
-  margin-bottom: 16px;
+  margin-bottom: 0;
   white-space: nowrap;
   backdrop-filter: blur(12px);
   box-shadow: var(--shadow-md);
@@ -95,8 +97,9 @@
 .description {
   font-size: var(--text-xl);
   line-height: var(--leading-body);
-  color: rgba(255, 255, 255, 0.78);
+  color: #fff;
   max-width: 640px;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
 }
 
 .card {
@@ -175,45 +178,52 @@
   }
 
   .body {
-    padding: 100px 16px max(24px, env(safe-area-inset-bottom));
+    padding: 96px 16px max(24px, env(safe-area-inset-bottom));
   }
 
   .mainRow {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 20px;
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto auto;
+    align-items: end;
+    gap: clamp(18px, 4.5vw, 28px);
     flex: 1;
+    min-height: 0;
   }
 
   .textBlock {
-    flex: 1;
-    justify-content: flex-end;
+    display: contents;
   }
 
   .heroCenter {
-    position: absolute;
-    left: 16px;
-    right: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none;
+    grid-row: 1;
+    align-self: center;
+    justify-self: stretch;
+    gap: clamp(12px, 3.2vw, 18px);
+    padding-bottom: clamp(8px, 2vw, 16px);
   }
 
   .headline {
-    font-size: clamp(38px, 10vw, 52px);
-    margin-bottom: 16px;
+    font-size: clamp(34px, 9vw, 48px);
   }
 
   .badge {
-    font-size: clamp(15px, 4.2vw, 18px);
-    padding: 11px 20px;
+    font-size: clamp(13px, 3.6vw, 16px);
+    padding: 10px 16px;
+    white-space: normal;
+    text-align: center;
+    align-self: flex-start;
   }
 
   .description {
+    grid-row: 2;
     max-width: none;
+    font-size: clamp(15px, 4vw, 18px);
+    line-height: 1.55;
+    padding-top: clamp(4px, 1vw, 8px);
   }
 
   .card {
+    grid-row: 3;
     min-width: unset;
     width: 100%;
     padding: 22px 24px;
@@ -243,22 +253,25 @@
 
 @media (max-width: 390px) {
   .body {
-    padding: 92px 14px max(20px, env(safe-area-inset-bottom));
+    padding: 88px 14px max(20px, env(safe-area-inset-bottom));
   }
 
-  .heroCenter {
-    left: 14px;
-    right: 14px;
+  .mainRow {
+    gap: 16px;
   }
 
   .headline {
-    font-size: clamp(34px, 9.5vw, 44px);
+    font-size: clamp(30px, 8.8vw, 40px);
   }
 
   .badge {
-    font-size: clamp(13px, 3.7vw, 16px);
-    padding: 10px 16px;
+    font-size: clamp(12px, 3.4vw, 15px);
+    padding: 9px 14px;
     letter-spacing: -0.01em;
+  }
+
+  .description {
+    font-size: clamp(14px, 3.8vw, 16px);
   }
 
   .card {

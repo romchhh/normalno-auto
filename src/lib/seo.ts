@@ -141,7 +141,7 @@ export function buildArticleMetadata({
   ogTitle,
 }: ArticleMetaInput): Metadata {
   const shared = buildSharedMeta({
-    title: `${title} | CardProc`,
+    title: `${title} | ${siteConfig.name}`,
     description,
     keywords,
     ogTitle: ogTitle ?? title,
@@ -152,7 +152,7 @@ export function buildArticleMetadata({
 
   return {
     ...shared,
-    title: `${title} | CardProc`,
+    title: `${title} | ${siteConfig.name}`,
     openGraph: {
       ...shared.openGraph,
       type: 'article',

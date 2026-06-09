@@ -23,8 +23,8 @@ export function generateMetadata({ params }: Props): Metadata {
       path: '/blog',
       locale,
       keywords: isEn
-        ? ['CardProc blog', 'Stripe articles', 'payment processing', 'Stripe integration', 'payment routing']
-        : ['блог CardProc', 'статьи Stripe', 'процессинг платежей', 'интеграция Stripe', 'payment routing'],
+        ? [`${siteConfig.name} blog`, 'Stripe articles', 'payment processing', 'Stripe integration', 'payment routing']
+        : [`блог ${siteConfig.name}`, 'статьи Stripe', 'процессинг платежей', 'интеграция Stripe', 'payment routing'],
     }),
     alternates: {
       canonical: localePath('/blog', locale),
@@ -35,8 +35,8 @@ export function generateMetadata({ params }: Props): Metadata {
       },
       types: {
         'application/rss+xml': [
-          { url: localePath('/blog/feed.xml', 'ru'), title: 'CardProc Blog RSS (RU)' },
-          { url: localePath('/blog/feed.xml', 'en'), title: 'CardProc Blog RSS (EN)' },
+          { url: localePath('/blog/feed.xml', 'ru'), title: `${siteConfig.name} Blog RSS (RU)` },
+          { url: localePath('/blog/feed.xml', 'en'), title: `${siteConfig.name} Blog RSS (EN)` },
         ],
       },
     },
@@ -51,7 +51,7 @@ export default function Blog({ params }: Props) {
 
   const breadcrumb = buildBreadcrumbJsonLd(
     [
-      { name: 'CardProc', path: '/' },
+      { name: siteConfig.name, path: '/' },
       { name: isEn ? 'Blog' : 'Блог', path: '/blog' },
     ],
     locale,
@@ -90,7 +90,7 @@ export default function Blog({ params }: Props) {
       <Navbar />
       <Breadcrumbs
         items={[
-          { name: 'CardProc', path: localePath('/', locale) },
+          { name: siteConfig.name, path: localePath('/', locale) },
           { name: isEn ? 'Blog' : 'Блог', path: blogPath },
         ]}
       />

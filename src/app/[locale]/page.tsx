@@ -37,7 +37,7 @@ export function generateMetadata({ params }: Props): Metadata {
         'international payments',
         'high-risk Stripe',
         'Stripe account setup',
-        'CardProc',
+        siteConfig.name,
       ],
     })
   }
@@ -56,7 +56,7 @@ export function generateMetadata({ params }: Props): Metadata {
       'payment routing Stripe',
       'международные платежи',
       'high-risk Stripe',
-      'CardProc',
+      siteConfig.name,
     ],
   })
 }

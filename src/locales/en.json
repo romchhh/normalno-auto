@@ -1,18 +1,18 @@
 {
   "seo": {
-    "heroImageAlt": "CardProc — international Stripe payment processing with warmed accounts",
+    "heroImageAlt": "WayOfProcessing — international Stripe payment processing with warmed accounts",
     "faqHeading": "Frequently asked questions about Stripe processing",
     "faq": [
       {
-        "question": "What is CardProc?",
-        "answer": "CardProc is an international Stripe payment processing service. We set up and support Stripe accounts, provide warmed accounts with turnover, CRM access and 24/7 support."
+        "question": "What is WayOfProcessing?",
+        "answer": "WayOfProcessing is an international Stripe payment processing service. We set up and support Stripe accounts, provide warmed accounts with turnover, CRM access and 24/7 support."
       },
       {
-        "question": "How much does Stripe processing cost with CardProc?",
+        "question": "How much does Stripe processing cost with WayOfProcessing?",
         "answer": "Processing fees start from 1.5%. The exact rate depends on your niche, payment volume and chosen solution. A free consultation helps find the right plan."
       },
       {
-        "question": "Which niches does CardProc support?",
+        "question": "Which niches does WayOfProcessing support?",
         "answer": "We work with marketplaces, SaaS, e-commerce, online courses, subscriptions, and high-risk niches including forex, gaming, vape, supplements and more."
       },
       {
@@ -24,8 +24,8 @@
         "answer": "If one account fails, payments are automatically routed to another warmed Stripe account via our Payment routing solution. Uptime is 99.9%."
       },
       {
-        "question": "How do I contact CardProc?",
-        "answer": "Submit a request on the website, email hello@cardproc.com or message @cardproc on Telegram. The team replies on Telegram and offers free consultations."
+        "question": "How do I contact WayOfProcessing?",
+        "answer": "Submit a request on the website, email hello@wayofprocessing.com or message @wayofprocessing on Telegram. The team replies on Telegram and offers free consultations."
       }
     ]
   },
@@ -51,7 +51,7 @@
     "cardSub": "Stripe account setup for your niche"
   },
   "specialists": {
-    "heading": "Contact CardProc specialists to work with Stripe.",
+    "heading": "Contact WayOfProcessing specialists to work with Stripe.",
     "descriptionPrefix": "We will provide you with a ready «warmed-up» Stripe account or create a ",
     "descriptionBold": "new one within 3 days",
     "descriptionSuffix": ". We provide full infrastructure for fast and secure international payment acceptance and withdrawals in fiat or crypto.",
@@ -76,7 +76,7 @@
       "value": "$53M",
       "desc": "total client payment volume"
     },
-    "cta": "Learn more about Card Processing"
+    "cta": "Learn more about WayOfProcessing"
   },
   "services": {
     "heading": "Our services",
@@ -145,7 +145,7 @@
     },
     "step4": {
       "title": "Real human support",
-      "desc": "The CardProc team is available on Telegram — a person answers your questions, not a bot. Free consultation at every stage."
+      "desc": "The WayOfProcessing team is available on Telegram — a person answers your questions, not a bot. Free consultation at every stage."
     }
   },
   "advantages": {
@@ -224,7 +224,7 @@
   },
   "blog": {
     "title": "All articles",
-    "subtitle": "Card Processing Blog",
+    "subtitle": "WayOfProcessing Blog",
     "category": "Information",
     "backToBlog": "Back to blog",
     "backHome": "Back to home",
@@ -251,7 +251,7 @@
     "submitting": "Sending…",
     "successTitle": "Thank you!",
     "successText": "We will contact you shortly.",
-    "modalTitle": "Contact CardProc",
+    "modalTitle": "Contact WayOfProcessing",
     "close": "Close",
     "imageAlt": "Stripe payment card",
     "services": {
@@ -265,12 +265,12 @@
   "privacy": {
     "title": "Privacy policy",
     "updated": "Last updated: June 8, 2026",
-    "intro": "This Privacy Policy explains how CardProc (\"we\", \"us\") collects, uses and protects personal data when you visit cardproc.com and submit requests through our contact forms.",
+    "intro": "This Privacy Policy explains how WayOfProcessing (\"we\", \"us\") collects, uses and protects personal data when you visit wayofprocessing.com and submit requests through our contact forms.",
     "sections": {
       "general": {
         "title": "1. General",
         "paragraphs": [
-          "CardProc provides international Stripe payment processing services, including consultations, account setup and related support.",
+          "WayOfProcessing provides international Stripe payment processing services, including consultations, account setup and related support.",
           "By using our website, you confirm that you have read this Policy. If you do not agree with its terms, please refrain from submitting personal data through the site."
         ]
       },
@@ -293,7 +293,7 @@
         ],
         "list": [
           "processing requests and responding to your inquiry;",
-          "providing consultations on CardProc services;",
+          "providing consultations on WayOfProcessing services;",
           "improving service quality and website performance;",
           "complying with applicable legal requirements."
         ]
@@ -302,7 +302,7 @@
         "title": "4. Legal basis",
         "paragraphs": [
           "Personal data is processed based on your consent, expressed when submitting the form with the data processing checkbox checked.",
-          "In certain cases, processing may rely on CardProc's legitimate interest — for example, to ensure website security and prevent abuse."
+          "In certain cases, processing may rely on WayOfProcessing's legitimate interest — for example, to ensure website security and prevent abuse."
         ]
       },
       "sharing": {
@@ -353,7 +353,7 @@
       "transfers": {
         "title": "10. International transfers",
         "paragraphs": [
-          "CardProc works with clients worldwide. Your data may be processed on servers located outside your country of residence.",
+          "WayOfProcessing works with clients worldwide. Your data may be processed on servers located outside your country of residence.",
           "When such transfers occur, we ensure an appropriate level of protection in line with applicable requirements."
         ]
       },
@@ -380,10 +380,10 @@
   },
   "footer": {
     "navLabel": "Navigation",
-    "brandBold": "CARD",
-    "brandRegular": "PROC",
-    "copyright": "All rights reserved ©{{year}} CardProc",
-    "legal": "International payment processing via Stripe. Warmed accounts, company registration, and 24/7 support. CardProc is an independent service, not affiliated with Stripe, Inc.",
+    "brandBold": "WAYOF",
+    "brandRegular": "PROCESSING",
+    "copyright": "All rights reserved ©{{year}} WayOfProcessing",
+    "legal": "International payment processing via Stripe. Warmed accounts, company registration, and 24/7 support. WayOfProcessing is an independent service, not affiliated with Stripe, Inc.",
     "infoHeading": "Information",
     "about": "About company",
     "services": "All services",
@@ -393,7 +393,7 @@
     "telegramChannel": "Telegram channel",
     "telegramOperator": "Telegram operator",
     "support247": "24/7 support",
-    "aboutHeading": "CardProc",
+    "aboutHeading": "WayOfProcessing",
     "aboutText": "We help businesses accept international payments via Stripe: warmed accounts, offshore company registration, processing for any niche, and free expert consultations.",
     "privacy": "Privacy policy",
     "developedBy": "Developed by"

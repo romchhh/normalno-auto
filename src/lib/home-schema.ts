@@ -61,7 +61,7 @@ export function buildHomeJsonLd(locale: Locale) {
           {
             '@type': 'ReadAction',
             target: absoluteUrl(localePath('/blog', locale)),
-            name: locale === 'en' ? 'Read CardProc blog' : 'Читать блог CardProc',
+            name: locale === 'en' ? `Read ${siteConfig.name} blog` : `Читать блог ${siteConfig.name}`,
           },
         ],
       },
@@ -134,8 +134,8 @@ export function buildHomeJsonLd(locale: Locale) {
         name: copy.howWeWork.heading,
         description:
           locale === 'en'
-            ? 'How CardProc connects Stripe: entity, bank, account, reporting and expert support.'
-            : 'Как CardProc подключает Stripe: юрлицо, банк, аккаунт, отчётность и поддержка экспертов.',
+            ? `How ${siteConfig.name} connects Stripe: entity, bank, account, reporting and expert support.`
+            : `Как ${siteConfig.name} подключает Stripe: юрлицо, банк, аккаунт, отчётность и поддержка экспертов.`,
         totalTime: 'P3D',
         step: HOW_WE_WORK_STEPS.map((key, index) => ({
           '@type': 'HowToStep',

@@ -53,7 +53,7 @@ export default function BlogPost({ params }: Props) {
 
   const breadcrumb = buildBreadcrumbJsonLd(
     [
-      { name: 'CardProc', path: '/' },
+      { name: siteConfig.name, path: '/' },
       { name: isEn ? 'Blog' : 'Блог', path: '/blog' },
       { name: view.title, path: `/blog/${post.slug}` },
     ],
@@ -92,7 +92,7 @@ export default function BlogPost({ params }: Props) {
       <Navbar />
       <Breadcrumbs
         items={[
-          { name: 'CardProc', path: localePath('/', locale) },
+          { name: siteConfig.name, path: localePath('/', locale) },
           { name: isEn ? 'Blog' : 'Блог', path: localePath('/blog', locale) },
           { name: view.title, path: postPath },
         ]}

@@ -73,7 +73,7 @@ export function getPostKeywords(post: BlogPost, locale: BlogLocale): string[] {
   const custom = postKeywords[post.slug]?.[locale]
   if (custom) return custom
   const view = post[locale]
-  return [view.title, view.category, 'Stripe', 'CardProc']
+  return [view.title, view.category, 'Stripe', siteConfig.name]
 }
 
 export function getPostImageUrl(image: string): string {
@@ -133,7 +133,7 @@ export function buildBlogItemListJsonLd(posts: BlogPost[], locale: BlogLocale = 
   return {
     '@type': 'ItemList',
     '@id': `${siteConfig.url}/blog#itemlist`,
-    name: locale === 'en' ? 'CardProc Blog Articles' : 'Статьи блога CardProc',
+    name: locale === 'en' ? `${siteConfig.name} Blog Articles` : `Статьи блога ${siteConfig.name}`,
     numberOfItems: posts.length,
     itemListElement: posts.map((post, index) => ({
       '@type': 'ListItem',

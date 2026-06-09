@@ -19,8 +19,8 @@ export function generateMetadata({ params }: Props): Metadata {
     path: '/privacy',
     locale,
     keywords: isEn
-      ? ['CardProc privacy policy', 'personal data', 'Stripe processing privacy']
-      : ['политика конфиденциальности CardProc', 'обработка персональных данных', 'privacy policy'],
+      ? [`${siteConfig.name} privacy policy`, 'personal data', 'Stripe processing privacy']
+      : [`политика конфиденциальности ${siteConfig.name}`, 'обработка персональных данных', 'privacy policy'],
   })
 }
 
@@ -30,7 +30,7 @@ export default function Privacy({ params }: Props) {
 
   const breadcrumb = buildBreadcrumbJsonLd(
     [
-      { name: 'CardProc', path: '/' },
+      { name: siteConfig.name, path: '/' },
       { name: isEn ? 'Privacy Policy' : 'Политика конфиденциальности', path: '/privacy' },
     ],
     locale,

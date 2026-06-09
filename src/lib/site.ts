@@ -1,25 +1,25 @@
 export const siteConfig = {
-  name: 'CardProc',
-  title: 'CardProc — Stripe Payment Processing',
+  name: 'WayOfProcessing',
+  title: 'WayOfProcessing — Stripe Payment Processing',
   titleRu:
-    'CardProc — процессинг Stripe от 1.5% | Прогретые аккаунты и приём платежей',
+    'WayOfProcessing — процессинг Stripe от 1.5% | Прогретые аккаунты и приём платежей',
   titleEn:
-    'CardProc — Stripe Processing from 1.5% | Warmed Accounts & Payment Acceptance',
+    'WayOfProcessing — Stripe Processing from 1.5% | Warmed Accounts & Payment Acceptance',
   description:
     'Stripe payment processing for any niche from 1.5%. Warmed-up accounts, 99.9% uptime, CRM access and unlimited withdrawals in EUR, USD, PLN and USDT.',
   descriptionRu:
     'Процессинг Stripe под любые ниши от 1.5%. Прогретые аккаунты с оборотом, аптайм 99.9%, CRM, вывод в EUR/USD/USDT. Бесплатная консультация эксперта.',
   descriptionEn:
     'Stripe payment processing for any niche from 1.5%. Warmed accounts, 99.9% uptime, CRM and withdrawals in EUR, USD, USDT. Free expert consultation.',
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://cardproc.com',
-  email: 'hello@cardproc.com',
-  telegram: '@cardproc',
-  telegramChannelUrl: 'https://t.me/cardproc',
-  telegramOperatorUrl: 'https://t.me/cardproc',
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://wayofprocessing.com',
+  email: 'hello@wayofprocessing.com',
+  telegram: '@wayofprocessing',
+  telegramChannelUrl: 'https://t.me/wayofprocessing',
+  telegramOperatorUrl: 'https://t.me/wayofprocessing',
   locale: 'ru_RU',
   alternateLocale: 'en_US',
   ogImage: '/images/hero-stripe.png',
-  ogImageAlt: 'CardProc — международный процессинг платежей через Stripe',
+  ogImageAlt: 'WayOfProcessing — международный процессинг платежей через Stripe',
   themeColor: '#635BFF',
   keywords: [
     'Stripe processing',
@@ -45,13 +45,14 @@ export const siteConfig = {
     'Stripe СНГ',
     'вывод средств Stripe',
     'Stripe CRM',
+    'WayOfProcessing',
   ],
   seo: {
     slogan: 'Международный процессинг Stripe от 1.5%',
     disclaimer:
-      'CardProc — независимый сервис и не является аффилированным лицом, партнёром или дочерней компанией Stripe, Inc.',
+      'WayOfProcessing — независимый сервис и не является аффилированным лицом, партнёром или дочерней компанией Stripe, Inc.',
     disclaimerEn:
-      'CardProc is an independent service and is not affiliated with, endorsed by, or a subsidiary of Stripe, Inc.',
+      'WayOfProcessing is an independent service and is not affiliated with, endorsed by, or a subsidiary of Stripe, Inc.',
     contentLanguages: 'ru, en',
     knowsAbout: [
       'Stripe payment processing',
@@ -78,20 +79,20 @@ export const siteConfig = {
   },
   pages: {
     blog: {
-      title: 'Блог CardProc — Stripe, процессинг и интеграции',
-      titleEn: 'CardProc Blog — Stripe, processing and integrations',
+      title: 'Блог WayOfProcessing — Stripe, процессинг и интеграции',
+      titleEn: 'WayOfProcessing Blog — Stripe, processing and integrations',
       description:
-        'Статьи CardProc о процессинге Stripe, прогретых аккаунтах, интеграциях, payment routing и приёме международных платежей для бизнеса.',
+        'Статьи WayOfProcessing о процессинге Stripe, прогретых аккаунтах, интеграциях, payment routing и приёме международных платежей для бизнеса.',
       descriptionEn:
-        'CardProc articles on Stripe processing, warmed accounts, integrations, payment routing and accepting international payments.',
+        'WayOfProcessing articles on Stripe processing, warmed accounts, integrations, payment routing and accepting international payments.',
     },
     privacy: {
-      title: 'Политика конфиденциальности CardProc',
-      titleEn: 'CardProc Privacy Policy',
+      title: 'Политика конфиденциальности WayOfProcessing',
+      titleEn: 'WayOfProcessing Privacy Policy',
       description:
-        'Как CardProc собирает, использует и защищает персональные данные при использовании сайта и отправке заявок.',
+        'Как WayOfProcessing собирает, использует и защищает персональные данные при использовании сайта и отправке заявок.',
       descriptionEn:
-        'How CardProc collects, uses and protects personal data when you use our website and contact forms.',
+        'How WayOfProcessing collects, uses and protects personal data when you use our website and contact forms.',
     },
   },
 }

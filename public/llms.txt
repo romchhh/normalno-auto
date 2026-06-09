@@ -1,8 +1,8 @@
-# CardProc
+# WayOfProcessing
 
 > International Stripe payment processing from 1.5%
 
-CardProc helps businesses accept payments worldwide via Stripe.
+WayOfProcessing helps businesses accept payments worldwide via Stripe.
 
 ## Summary
 
@@ -12,8 +12,8 @@ CardProc helps businesses accept payments worldwide via Stripe.
 - Experience: 7 years with Stripe, 1100+ accounts, $53M+ client volume
 - Withdrawals: EUR, USD, PLN, USDT and more
 - Languages: Russian (/ru, default), English (/en)
-- Contact: hello@cardproc.com, Telegram @cardproc
-- Disclaimer: CardProc is independent and not affiliated with Stripe, Inc.
+- Contact: hello@wayofprocessing.com, Telegram @wayofprocessing
+- Disclaimer: WayOfProcessing is independent and not affiliated with Stripe, Inc.
 
 ## Key pages
 
@@ -60,7 +60,7 @@ CardProc helps businesses accept payments worldwide via Stripe.
 - /#advantages — Advantages (uptime, accounts, tax, CRM, niches, withdrawals)
 - /#how-we-work — How we work
 - /#accounts — Accounts in operation
-- /#specialists — CardProc specialists
+- /#specialists — WayOfProcessing specialists
 - /#clients — Client niches
 - /#faq — FAQ
 - /#kontakt — Contact form

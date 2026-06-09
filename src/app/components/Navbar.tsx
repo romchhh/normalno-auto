@@ -41,7 +41,9 @@ export default function Navbar({ transparent = false }: { transparent?: boolean 
   return (
     <>
       <nav className={`${styles.nav} ${isDark ? styles.solid : styles.transparent} ${isDark ? styles.navDark : styles.navLight}`}>
-        <a href={lp('/')} className={styles.brand}>Card<span>Proc</span></a>
+        <a href={lp('/')} className={styles.brand}>
+          {t('footer.brandBold')}<span>{t('footer.brandRegular')}</span>
+        </a>
 
         <div className={styles.center}>
           <a href={hash('specialists')}>{t('nav.about')}</a>

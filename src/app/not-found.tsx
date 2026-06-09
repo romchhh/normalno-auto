@@ -6,7 +6,7 @@ import styles from './not-found.module.css'
 
 export const metadata = buildPageMetadata({
   title: 'Страница не найдена',
-  description: 'Запрошенная страница не существует. Вернитесь на главную CardProc или в блог о Stripe.',
+  description: 'Запрошенная страница не существует. Вернитесь на главную WayOfProcessing или в блог.',
   path: '/404',
   locale: 'ru',
   noIndex: true,
