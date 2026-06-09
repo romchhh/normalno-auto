@@ -1,0 +1,103 @@
+import type { Metadata } from 'next'
+import Navbar from '../../components/Navbar'
+import BlogPage from '../../components/BlogPage'
+import Footer from '../../components/Footer'
+import Breadcrumbs from '../../components/seo/Breadcrumbs'
+import JsonLdScript from '../../components/seo/JsonLdScript'
+import { buildBlogItemListJsonLd } from '@/lib/blog-seo'
+import { getAllPosts } from '@/lib/blog'
+import { isValidLocale, localePath, type Locale } from '@/lib/i18n/config'
+import { absoluteUrl, buildBreadcrumbJsonLd, buildGraphJsonLd, buildPageMetadata, buildWebPageJsonLd } from '@/lib/seo'
+import { siteConfig } from '@/lib/site'
+
+type Props = { params: { locale: string } }
+
+export function generateMetadata({ params }: Props): Metadata {
+  const locale = (isValidLocale(params.locale) ? params.locale : 'ru') as Locale
+  const isEn = locale === 'en'
+
+  return {
+    ...buildPageMetadata({
+      title: isEn ? siteConfig.pages.blog.titleEn : siteConfig.pages.blog.title,
+      description: isEn ? siteConfig.pages.blog.descriptionEn : siteConfig.pages.blog.description,
+      path: '/blog',
+      locale,
+      keywords: isEn
+        ? ['CardProc blog', 'Stripe articles', 'payment processing', 'Stripe integration', 'payment routing']
+        : ['блог CardProc', 'статьи Stripe', 'процессинг платежей', 'интеграция Stripe', 'payment routing'],
+    }),
+    alternates: {
+      canonical: localePath('/blog', locale),
+      languages: {
+        'ru-RU': localePath('/blog', 'ru'),
+        'en-US': localePath('/blog', 'en'),
+        'x-default': localePath('/blog', 'ru'),
+      },
+      types: {
+        'application/rss+xml': [
+          { url: localePath('/blog/feed.xml', 'ru'), title: 'CardProc Blog RSS (RU)' },
+          { url: localePath('/blog/feed.xml', 'en'), title: 'CardProc Blog RSS (EN)' },
+        ],
+      },
+    },
+  }
+}
+
+export default function Blog({ params }: Props) {
+  const locale = (isValidLocale(params.locale) ? params.locale : 'ru') as Locale
+  const isEn = locale === 'en'
+  const posts = getAllPosts()
+  const blogPath = localePath('/blog', locale)
+
+  const breadcrumb = buildBreadcrumbJsonLd(
+    [
+      { name: 'CardProc', path: '/' },
+      { name: isEn ? 'Blog' : 'Блог', path: '/blog' },
+    ],
+    locale,
+  )
+
+  const webPage = buildWebPageJsonLd({
+    title: isEn ? siteConfig.pages.blog.titleEn : siteConfig.pages.blog.title,
+    description: isEn ? siteConfig.pages.blog.descriptionEn : siteConfig.pages.blog.description,
+    path: '/blog',
+    locale,
+  })
+
+  const blogSchema = {
+    '@type': 'Blog',
+    '@id': `${absoluteUrl(blogPath)}#blog`,
+    url: absoluteUrl(blogPath),
+    name: isEn ? siteConfig.pages.blog.titleEn : siteConfig.pages.blog.title,
+    description: isEn ? siteConfig.pages.blog.descriptionEn : siteConfig.pages.blog.description,
+    publisher: { '@id': `${siteConfig.url}/#organization` },
+    blogPost: posts.map((post) => ({
+      '@type': 'BlogPosting',
+      '@id': `${absoluteUrl(localePath(`/blog/${post.slug}`, locale))}#article`,
+      headline: post[locale].title,
+      description: post[locale].excerpt,
+      datePublished: post.date,
+      url: absoluteUrl(localePath(`/blog/${post.slug}`, locale)),
+    })),
+    inLanguage: locale,
+  }
+
+  const itemList = buildBlogItemListJsonLd(posts, locale)
+
+  return (
+    <>
+      <JsonLdScript data={buildGraphJsonLd([breadcrumb, webPage, blogSchema, itemList])} />
+      <Navbar />
+      <Breadcrumbs
+        items={[
+          { name: 'CardProc', path: localePath('/', locale) },
+          { name: isEn ? 'Blog' : 'Блог', path: blogPath },
+        ]}
+      />
+      <main>
+        <BlogPage />
+      </main>
+      <Footer />
+    </>
+  )
+}

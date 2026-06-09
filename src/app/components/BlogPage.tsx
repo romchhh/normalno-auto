@@ -4,13 +4,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useTranslation } from 'react-i18next'
 import { formatBlogDate, getAllPostViews } from '@/lib/blog'
+import { useLocale, useLocalizedPath } from '@/lib/i18n/use-locale'
 import ScrollReveal from './ScrollReveal'
 import styles from './BlogPage.module.css'
 
 export default function BlogPage() {
-  const { t, i18n } = useTranslation()
-  const lang = i18n.language === 'en' ? 'en' : 'ru'
-  const posts = getAllPostViews(lang)
+  const { t } = useTranslation()
+  const locale = useLocale()
+  const lp = useLocalizedPath()
+  const posts = getAllPostViews(locale)
 
   return (
     <div className={styles.page}>
@@ -33,7 +35,7 @@ export default function BlogPage() {
         <div className={styles.grid}>
           {posts.map((post, index) => (
             <ScrollReveal key={post.slug} delay={(index % 2) * 100}>
-            <Link href={`/blog/${post.slug}`} className={styles.card}>
+            <Link href={lp(`/blog/${post.slug}`)} className={styles.card}>
               <div className={styles.cardImgWrap}>
                 <Image
                   src={post.image}
@@ -45,7 +47,7 @@ export default function BlogPage() {
               </div>
               <div className={styles.cardBody}>
                 <p className={styles.cardMeta}>
-                  <time dateTime={post.date}>{formatBlogDate(post.date, lang)}</time>
+                  <time dateTime={post.date}>{formatBlogDate(post.date, locale)}</time>
                   <span aria-hidden="true">·</span>
                   <span>{post.category}</span>
                   <span aria-hidden="true">·</span>

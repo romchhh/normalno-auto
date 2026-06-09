@@ -1,21 +1,17 @@
 'use client'
 
 import { useEffect } from 'react'
-import i18n from '@/lib/i18n/client'
+import { usePathname } from 'next/navigation'
+import { setI18nLocale } from '@/lib/i18n/client'
+import { defaultLocale, getLocaleFromPathname } from '@/lib/i18n/config'
 
 export default function LangSync() {
+  const pathname = usePathname()
+
   useEffect(() => {
-    document.documentElement.lang = i18n.language
-
-    const handleChange = (lng: string) => {
-      document.documentElement.lang = lng
-    }
-
-    i18n.on('languageChanged', handleChange)
-    return () => {
-      i18n.off('languageChanged', handleChange)
-    }
-  }, [])
+    const locale = getLocaleFromPathname(pathname) ?? defaultLocale
+    setI18nLocale(locale)
+  }, [pathname])
 
   return null
 }

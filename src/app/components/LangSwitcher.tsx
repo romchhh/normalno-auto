@@ -1,8 +1,11 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { usePathname, useRouter } from 'next/navigation'
 import { useTranslation } from 'react-i18next'
-import i18n from '@/lib/i18n/client'
+import { setI18nLocale } from '@/lib/i18n/client'
+import { switchLocalePath, type Locale } from '@/lib/i18n/config'
+import { useLocale } from '@/lib/i18n/use-locale'
 import styles from './LangSwitcher.module.css'
 
 const LANGUAGES = [
@@ -26,13 +29,20 @@ type LangSwitcherProps = {
 }
 
 export default function LangSwitcher({ variant = 'header', light = false }: LangSwitcherProps) {
-  const { t, i18n: i18nInstance } = useTranslation()
+  const { t } = useTranslation()
+  const router = useRouter()
+  const pathname = usePathname()
+  const locale = useLocale()
   const [open, setOpen] = useState(false)
   const wrapRef = useRef<HTMLDivElement>(null)
-  const locale = i18nInstance.language
 
-  const switchLang = (lang: 'ru' | 'en') => {
-    i18n.changeLanguage(lang)
+  const switchLang = (lang: Locale) => {
+    if (lang === locale) {
+      setOpen(false)
+      return
+    }
+    setI18nLocale(lang)
+    router.push(switchLocalePath(pathname, lang))
     setOpen(false)
   }
 

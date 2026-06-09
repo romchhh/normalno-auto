@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import { useTranslation } from 'react-i18next'
 import { siteConfig } from '@/lib/site'
+import { stripLocalePrefix } from '@/lib/i18n/config'
+import { useLocalizedPath } from '@/lib/i18n/use-locale'
 import { useContactModal } from './ContactModalProvider'
 import { TelegramIcon } from './icons/SocialIcons'
 import LangSwitcher from './LangSwitcher'
@@ -13,11 +15,13 @@ export default function Navbar({ transparent = false }: { transparent?: boolean 
   const { t } = useTranslation()
   const { open: openContactModal } = useContactModal()
   const pathname = usePathname()
+  const lp = useLocalizedPath()
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
-  const isHome = pathname === '/'
-  const hash = (id: string) => (isHome ? `#${id}` : `/#${id}`)
+  const isHome = stripLocalePrefix(pathname) === '/'
+  const hash = (id: string) => (isHome ? `#${id}` : `${lp('/')}#${id}`)
+  const blogPath = lp('/blog')
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60)
@@ -32,17 +36,18 @@ export default function Navbar({ transparent = false }: { transparent?: boolean 
   }, [menuOpen])
 
   const isDark = !isHome || !transparent || scrolled
+  const isBlogActive = stripLocalePrefix(pathname) === '/blog' || pathname.includes('/blog/')
 
   return (
     <>
       <nav className={`${styles.nav} ${isDark ? styles.solid : styles.transparent} ${isDark ? styles.navDark : styles.navLight}`}>
-        <a href="/" className={styles.brand}>Card<span>Proc</span></a>
+        <a href={lp('/')} className={styles.brand}>Card<span>Proc</span></a>
 
         <div className={styles.center}>
           <a href={hash('specialists')}>{t('nav.about')}</a>
           <a href={hash('services')}>{t('nav.services')}</a>
           <a href={hash('clients')}>{t('nav.clients')}</a>
-          <a href="/blog" className={pathname === '/blog' ? styles.activeLink : ''}>{t('nav.blog')}</a>
+          <a href={blogPath} className={isBlogActive ? styles.activeLink : ''}>{t('nav.blog')}</a>
         </div>
 
         <div className={styles.actions}>
@@ -97,7 +102,7 @@ export default function Navbar({ transparent = false }: { transparent?: boolean 
         <a href={hash('specialists')} onClick={() => setMenuOpen(false)}>{t('nav.about')}</a>
         <a href={hash('services')} onClick={() => setMenuOpen(false)}>{t('nav.services')}</a>
         <a href={hash('clients')} onClick={() => setMenuOpen(false)}>{t('nav.clients')}</a>
-        <a href="/blog" onClick={() => setMenuOpen(false)}>{t('nav.blog')}</a>
+        <a href={blogPath} onClick={() => setMenuOpen(false)}>{t('nav.blog')}</a>
         <button
           type="button"
           className={styles.drawerCta}

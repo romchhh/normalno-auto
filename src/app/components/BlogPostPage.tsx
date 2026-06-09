@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useTranslation } from 'react-i18next'
 import type { BlogPost } from '@/lib/blog'
 import { formatBlogDate, localizePost } from '@/lib/blog'
+import { useLocale, useLocalizedPath } from '@/lib/i18n/use-locale'
 import { useContactModal } from './ContactModalProvider'
 import BlogPostContent from './BlogPostContent'
 import styles from './BlogPostPage.module.css'
@@ -16,15 +17,16 @@ export default function BlogPostPage({
   post: BlogPost
   related: BlogPost[]
 }) {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const { open: openContactModal } = useContactModal()
-  const lang = i18n.language === 'en' ? 'en' : 'ru'
-  const view = localizePost(post, lang)
+  const locale = useLocale()
+  const lp = useLocalizedPath()
+  const view = localizePost(post, locale)
 
   return (
     <article className={styles.page}>
       <div className={styles.inner}>
-        <Link href="/blog" className={styles.back}>
+        <Link href={lp('/blog')} className={styles.back}>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M10 3 L5 8 L10 13 M5 8 H14" />
           </svg>
@@ -51,9 +53,9 @@ export default function BlogPostPage({
                   <path d="M2.5 7.5 H15.5 M6 2 V5 M12 2 V5" />
                 </svg>
               </span>
-              <time dateTime={view.date}>{formatBlogDate(view.date, lang)}</time>
+              <time dateTime={view.date}>{formatBlogDate(view.date, locale)}</time>
               <span className={styles.metaDot} aria-hidden="true">·</span>
-              <Link href="/blog" className={styles.metaCategory}>
+              <Link href={lp('/blog')} className={styles.metaCategory}>
                 {view.category}
               </Link>
             </div>
@@ -92,16 +94,16 @@ export default function BlogPostPage({
               <h2 id="related-heading" className={styles.relatedTitle}>
                 {t('blog.readAlso')}
               </h2>
-              <Link href="/blog" className={styles.viewAll}>
+              <Link href={lp('/blog')} className={styles.viewAll}>
                 {t('blog.viewAll')}
               </Link>
             </div>
 
             <div className={styles.relatedGrid}>
               {related.map((item) => {
-                const itemView = localizePost(item, lang)
+                const itemView = localizePost(item, locale)
                 return (
-                  <Link key={item.slug} href={`/blog/${item.slug}`} className={styles.relatedCard}>
+                  <Link key={item.slug} href={lp(`/blog/${item.slug}`)} className={styles.relatedCard}>
                     <div className={styles.relatedImgWrap}>
                       <Image
                         src={itemView.image}
@@ -113,7 +115,7 @@ export default function BlogPostPage({
                     </div>
                     <div className={styles.relatedBody}>
                       <p className={styles.relatedMeta}>
-                        {formatBlogDate(itemView.date, lang)} · {itemView.category}
+                        {formatBlogDate(itemView.date, locale)} · {itemView.category}
                       </p>
                       <h3 className={styles.relatedCardTitle}>{itemView.title}</h3>
                       <span className={styles.readMore}>
@@ -133,10 +135,10 @@ export default function BlogPostPage({
         )}
 
         <div className={styles.footerNav}>
-          <Link href="/blog" className={styles.footerLink}>
+          <Link href={lp('/blog')} className={styles.footerLink}>
             {t('blog.backToBlog')}
           </Link>
-          <Link href="/" className={styles.footerLink}>
+          <Link href={lp('/')} className={styles.footerLink}>
             {t('blog.backHome')}
           </Link>
         </div>

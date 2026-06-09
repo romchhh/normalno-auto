@@ -1,11 +1,17 @@
+import en from '@/locales/en.json'
 import ru from '@/locales/ru.json'
+import { localePath, type Locale } from './i18n/config'
 import { absoluteUrl } from './seo'
 import { siteConfig } from './site'
 
 const HOW_WE_WORK_STEPS = ['step1', 'step2', 'step3', 'step4'] as const
 
-export function buildHomeJsonLd() {
-  const faqItems = ru.seo.faq
+export function buildHomeJsonLd(locale: Locale) {
+  const copy = locale === 'en' ? en : ru
+  const faqItems = copy.seo.faq
+  const homePath = localePath('/', locale)
+  const title = locale === 'en' ? siteConfig.titleEn : siteConfig.titleRu
+  const description = locale === 'en' ? siteConfig.descriptionEn : siteConfig.descriptionRu
 
   return {
     '@context': 'https://schema.org',
@@ -18,7 +24,7 @@ export function buildHomeJsonLd() {
         url: siteConfig.url,
         slogan: siteConfig.seo.slogan,
         email: siteConfig.email,
-        description: siteConfig.descriptionRu,
+        description,
         knowsAbout: siteConfig.seo.knowsAbout,
         logo: {
           '@type': 'ImageObject',
@@ -43,28 +49,28 @@ export function buildHomeJsonLd() {
         '@id': `${siteConfig.url}/#website`,
         name: siteConfig.name,
         url: siteConfig.url,
-        description: siteConfig.descriptionRu,
+        description,
         publisher: { '@id': `${siteConfig.url}/#organization` },
         inLanguage: ['ru', 'en'],
         potentialAction: [
           {
             '@type': 'CommunicateAction',
-            target: absoluteUrl('/#kontakt'),
-            name: 'Оставить заявку',
+            target: absoluteUrl(`${homePath}#kontakt`),
+            name: locale === 'en' ? 'Submit a request' : 'Оставить заявку',
           },
           {
             '@type': 'ReadAction',
-            target: absoluteUrl('/blog'),
-            name: 'Читать блог CardProc',
+            target: absoluteUrl(localePath('/blog', locale)),
+            name: locale === 'en' ? 'Read CardProc blog' : 'Читать блог CardProc',
           },
         ],
       },
       {
         '@type': 'FinancialService',
         '@id': `${siteConfig.url}/#service`,
-        name: `${siteConfig.name} — процессинг Stripe`,
-        description: siteConfig.descriptionRu,
-        url: siteConfig.url,
+        name: `${siteConfig.name} — ${locale === 'en' ? 'Stripe processing' : 'процессинг Stripe'}`,
+        description,
+        url: absoluteUrl(homePath),
         provider: { '@id': `${siteConfig.url}/#organization` },
         areaServed: siteConfig.seo.areaServed.map((name) => ({
           '@type': 'Place',
@@ -77,42 +83,11 @@ export function buildHomeJsonLd() {
           'International payment acceptance',
           'High-risk payment processing',
         ],
-        termsOfService: absoluteUrl('/privacy'),
-        hasOfferCatalog: {
-          '@type': 'OfferCatalog',
-          name: 'Услуги процессинга Stripe',
-          itemListElement: [
-            {
-              '@type': 'Offer',
-              itemOffered: {
-                '@type': 'Service',
-                name: 'Компания + банк + Stripe под ключ',
-                url: absoluteUrl('/#services'),
-              },
-            },
-            {
-              '@type': 'Offer',
-              itemOffered: {
-                '@type': 'Service',
-                name: 'Процессинг платежей от 1.5%',
-                url: absoluteUrl('/#services'),
-              },
-            },
-            {
-              '@type': 'Offer',
-              itemOffered: {
-                '@type': 'Service',
-                name: 'Прогретые Stripe-аккаунты',
-                url: absoluteUrl('/#accounts'),
-              },
-            },
-          ],
-        },
+        termsOfService: absoluteUrl(localePath('/privacy', locale)),
         offers: {
           '@type': 'Offer',
-          name: 'Процессинг Stripe от 1.5%',
-          description:
-            'Подключение Stripe-аккаунта, прогретые аккаунты, CRM и вывод средств без ограничений.',
+          name: locale === 'en' ? 'Stripe processing from 1.5%' : 'Процессинг Stripe от 1.5%',
+          description,
           priceSpecification: {
             '@type': 'UnitPriceSpecification',
             price: '1.5',
@@ -120,22 +95,22 @@ export function buildHomeJsonLd() {
             unitText: 'percent commission',
           },
           availability: 'https://schema.org/InStock',
-          url: absoluteUrl('/#kontakt'),
+          url: absoluteUrl(`${homePath}#kontakt`),
         },
       },
       {
         '@type': 'WebPage',
-        '@id': `${siteConfig.url}/#webpage`,
-        url: siteConfig.url,
-        name: siteConfig.titleRu,
-        description: siteConfig.descriptionRu,
+        '@id': `${absoluteUrl(homePath)}#webpage`,
+        url: absoluteUrl(homePath),
+        name: title,
+        description,
         isPartOf: { '@id': `${siteConfig.url}/#website` },
         about: { '@id': `${siteConfig.url}/#service` },
         primaryImageOfPage: {
           '@type': 'ImageObject',
           url: absoluteUrl(siteConfig.ogImage),
         },
-        inLanguage: ['ru', 'en'],
+        inLanguage: locale,
         speakable: {
           '@type': 'SpeakableSpecification',
           cssSelector: ['h1', '#faq-heading'],
@@ -143,7 +118,7 @@ export function buildHomeJsonLd() {
       },
       {
         '@type': 'FAQPage',
-        '@id': `${siteConfig.url}/#faq`,
+        '@id': `${absoluteUrl(homePath)}#faq`,
         mainEntity: faqItems.map((item) => ({
           '@type': 'Question',
           name: item.question,
@@ -155,49 +130,20 @@ export function buildHomeJsonLd() {
       },
       {
         '@type': 'HowTo',
-        '@id': `${siteConfig.url}/#how-to`,
-        name: ru.howWeWork.heading,
+        '@id': `${absoluteUrl(homePath)}#how-to`,
+        name: copy.howWeWork.heading,
         description:
-          'Как CardProc подключает Stripe: юрлицо, банк, аккаунт, отчётность и поддержка экспертов.',
+          locale === 'en'
+            ? 'How CardProc connects Stripe: entity, bank, account, reporting and expert support.'
+            : 'Как CardProc подключает Stripe: юрлицо, банк, аккаунт, отчётность и поддержка экспертов.',
         totalTime: 'P3D',
         step: HOW_WE_WORK_STEPS.map((key, index) => ({
           '@type': 'HowToStep',
           position: index + 1,
-          name: ru.howWeWork[key].title,
-          text: ru.howWeWork[key].desc,
-          url: absoluteUrl('/#how-we-work'),
+          name: copy.howWeWork[key].title,
+          text: copy.howWeWork[key].desc,
+          url: absoluteUrl(`${homePath}#how-we-work`),
         })),
-      },
-      {
-        '@type': 'ItemList',
-        '@id': `${siteConfig.url}/#services-list`,
-        name: 'Услуги CardProc',
-        itemListElement: [
-          {
-            '@type': 'ListItem',
-            position: 1,
-            name: 'Компания + банк + Stripe под ключ',
-            url: absoluteUrl('/#services'),
-          },
-          {
-            '@type': 'ListItem',
-            position: 2,
-            name: 'Процессинг платежей от 1.5%',
-            url: absoluteUrl('/#services'),
-          },
-          {
-            '@type': 'ListItem',
-            position: 3,
-            name: 'Прогретые Stripe-аккаунты',
-            url: absoluteUrl('/#accounts'),
-          },
-          {
-            '@type': 'ListItem',
-            position: 4,
-            name: 'Бесплатная консультация эксперта',
-            url: absoluteUrl('/#kontakt'),
-          },
-        ],
       },
     ],
   }

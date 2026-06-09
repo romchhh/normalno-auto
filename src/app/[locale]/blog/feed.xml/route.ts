@@ -1,20 +1,34 @@
 import { getAllPosts } from '@/lib/blog'
+import { isValidLocale, localePath } from '@/lib/i18n/config'
 import { absoluteUrl, escapeXml } from '@/lib/seo'
 import { siteConfig } from '@/lib/site'
 
-export function GET() {
+type Params = { params: { locale: string } }
+
+export function generateStaticParams() {
+  return [{ locale: 'ru' }, { locale: 'en' }]
+}
+
+export function GET(_request: Request, { params }: Params) {
+  const locale = isValidLocale(params.locale) ? params.locale : 'ru'
+  const isEn = locale === 'en'
   const posts = getAllPosts()
-  const channelTitle = escapeXml(siteConfig.pages.blog.title)
-  const channelDescription = escapeXml(siteConfig.pages.blog.description)
-  const feedUrl = absoluteUrl('/blog/feed.xml')
-  const blogUrl = absoluteUrl('/blog')
+  const channelTitle = escapeXml(isEn ? siteConfig.pages.blog.titleEn : siteConfig.pages.blog.title)
+  const channelDescription = escapeXml(
+    isEn ? siteConfig.pages.blog.descriptionEn : siteConfig.pages.blog.description,
+  )
+  const blogPath = localePath('/blog', locale)
+  const feedPath = localePath('/blog/feed.xml', locale)
+  const feedUrl = absoluteUrl(feedPath)
+  const blogUrl = absoluteUrl(blogPath)
 
   const items = posts
     .map((post) => {
-      const url = absoluteUrl(`/blog/${post.slug}`)
-      const title = escapeXml(post.ru.title)
-      const description = escapeXml(post.ru.excerpt)
-      const category = escapeXml(post.ru.category)
+      const view = post[locale]
+      const url = absoluteUrl(localePath(`/blog/${post.slug}`, locale))
+      const title = escapeXml(view.title)
+      const description = escapeXml(view.excerpt)
+      const category = escapeXml(view.category)
       const image = escapeXml(absoluteUrl(post.image))
 
       return `<item>
@@ -35,7 +49,7 @@ export function GET() {
     <title>${channelTitle}</title>
     <link>${blogUrl}</link>
     <description>${channelDescription}</description>
-    <language>ru</language>
+    <language>${locale}</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="${feedUrl}" rel="self" type="application/rss+xml" />
     ${items}

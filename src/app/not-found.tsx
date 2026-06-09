@@ -8,6 +8,7 @@ export const metadata = buildPageMetadata({
   title: 'Страница не найдена',
   description: 'Запрошенная страница не существует. Вернитесь на главную CardProc или в блог о Stripe.',
   path: '/404',
+  locale: 'ru',
   noIndex: true,
 })
 
@@ -22,10 +23,10 @@ export default function NotFound() {
           Возможно, ссылка устарела или страница была перемещена.
         </p>
         <div className={styles.actions}>
-          <Link href="/" className={styles.primary}>
+          <Link href="/ru" className={styles.primary}>
             На главную
           </Link>
-          <Link href="/blog" className={styles.secondary}>
+          <Link href="/ru/blog" className={styles.secondary}>
             В блог
           </Link>
         </div>

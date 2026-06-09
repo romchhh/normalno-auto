@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
+import { localeOgLocale, localePath, type Locale } from './i18n/config'
 import { siteConfig } from './site'
 
 type PageMetaInput = {
   title: string
   description: string
   path: string
+  locale: Locale
   keywords?: string[]
   ogTitle?: string
   noIndex?: boolean
@@ -14,6 +16,7 @@ type ArticleMetaInput = {
   title: string
   description: string
   path: string
+  locale: Locale
   image: string
   imageAlt: string
   publishedTime: string
@@ -35,12 +38,24 @@ export function absoluteUrl(path: string) {
   return `${siteConfig.url}${path.startsWith('/') ? path : `/${path}`}`
 }
 
+function buildHreflang(path: string, locale: Locale) {
+  return {
+    canonical: localePath(path, locale),
+    languages: {
+      'ru-RU': localePath(path, 'ru'),
+      'en-US': localePath(path, 'en'),
+      'x-default': localePath(path, 'ru'),
+    },
+  }
+}
+
 function buildSharedMeta({
   title,
   description,
   keywords,
   ogTitle,
   path,
+  locale,
   noIndex = false,
 }: {
   title: string
@@ -48,27 +63,28 @@ function buildSharedMeta({
   keywords?: string[]
   ogTitle?: string
   path: string
+  locale: Locale
   noIndex?: boolean
 }) {
-  const url = absoluteUrl(path)
+  const localizedPath = localePath(path, locale)
+  const url = absoluteUrl(localizedPath)
+  const ogLocale = localeOgLocale(locale)
+  const alternateOgLocale = localeOgLocale(locale === 'ru' ? 'en' : 'ru')
 
   return {
     title,
     description,
     keywords: keywords ?? siteConfig.keywords,
-    alternates: noIndex
-      ? undefined
-      : {
-          canonical: path,
-        },
+    alternates: noIndex ? undefined : buildHreflang(path, locale),
     robots: noIndex
       ? { index: false, follow: false }
       : { index: true, follow: true, googleBot },
     other: {
-      'content-language': siteConfig.seo.contentLanguages,
+      'content-language': locale,
     },
     openGraph: {
-      locale: siteConfig.locale,
+      locale: ogLocale,
+      alternateLocale: [alternateOgLocale],
       url,
       siteName: siteConfig.name,
       title: ogTitle ?? title,
@@ -95,11 +111,12 @@ export function buildPageMetadata({
   title,
   description,
   path,
+  locale,
   keywords,
   ogTitle,
   noIndex = false,
 }: PageMetaInput): Metadata {
-  const shared = buildSharedMeta({ title, description, keywords, ogTitle, path, noIndex })
+  const shared = buildSharedMeta({ title, description, keywords, ogTitle, path, locale, noIndex })
 
   return {
     ...shared,
@@ -114,6 +131,7 @@ export function buildArticleMetadata({
   title,
   description,
   path,
+  locale,
   image,
   imageAlt,
   publishedTime,
@@ -128,6 +146,7 @@ export function buildArticleMetadata({
     keywords,
     ogTitle: ogTitle ?? title,
     path,
+    locale,
   })
   const ogImage = image.startsWith('http') ? image : absoluteUrl(image)
 
@@ -158,7 +177,10 @@ export function buildArticleMetadata({
   }
 }
 
-export function buildBreadcrumbJsonLd(items: { name: string; path: string }[]) {
+export function buildBreadcrumbJsonLd(
+  items: { name: string; path: string }[],
+  locale: Locale,
+) {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -166,7 +188,7 @@ export function buildBreadcrumbJsonLd(items: { name: string; path: string }[]) {
       '@type': 'ListItem',
       position: index + 1,
       name: item.name,
-      item: absoluteUrl(item.path),
+      item: absoluteUrl(localePath(item.path, locale)),
     })),
   }
 }
@@ -182,23 +204,26 @@ export function buildWebPageJsonLd({
   title,
   description,
   path,
+  locale,
   dateModified,
 }: {
   title: string
   description: string
   path: string
+  locale: Locale
   dateModified?: string
 }) {
+  const localizedPath = localePath(path, locale)
   return {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    '@id': `${absoluteUrl(path)}#webpage`,
-    url: absoluteUrl(path),
+    '@id': `${absoluteUrl(localizedPath)}#webpage`,
+    url: absoluteUrl(localizedPath),
     name: title,
     description,
     isPartOf: { '@id': `${siteConfig.url}/#website` },
     about: { '@id': `${siteConfig.url}/#service` },
-    inLanguage: ['ru', 'en'],
+    inLanguage: locale,
     ...(dateModified ? { dateModified } : {}),
   }
 }

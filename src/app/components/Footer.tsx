@@ -2,20 +2,22 @@
 
 import { useTranslation } from 'react-i18next'
 import { siteConfig } from '@/lib/site'
+import { useLocalizedPath } from '@/lib/i18n/use-locale'
 import { TelegramIcon, SupportIcon } from './icons/SocialIcons'
 import { useContactModal } from './ContactModalProvider'
 import styles from './Footer.module.css'
 
 const NAV_LINKS = [
-  { key: 'about', href: '/#specialists' },
-  { key: 'services', href: '/#services' },
-  { key: 'clients', href: '/#clients' },
-  { key: 'blog', href: '/blog' },
+  { key: 'about', hash: 'specialists' },
+  { key: 'services', hash: 'services' },
+  { key: 'clients', hash: 'clients' },
+  { key: 'blog', path: '/blog' },
 ] as const
 
 export default function Footer() {
   const { t } = useTranslation()
   const { open: openContactModal } = useContactModal()
+  const lp = useLocalizedPath()
   const year = new Date().getFullYear()
 
   const contactItems = [
@@ -43,7 +45,7 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.grid}>
         <div className={styles.col}>
-          <a href="/" className={styles.brand}>
+          <a href={lp('/')} className={styles.brand}>
             <span className={styles.brandBold}>{t('footer.brandBold')}</span>
             <span className={styles.brandRegular}>{t('footer.brandRegular')}</span>
           </a>
@@ -54,8 +56,13 @@ export default function Footer() {
         <div className={styles.col}>
           <h3 className={styles.heading}>{t('footer.infoHeading')}</h3>
           <nav className={styles.nav} aria-label={t('footer.navLabel')}>
-            {NAV_LINKS.map(({ key, href }) => (
-              <a key={key} href={href}>{t(`footer.${key}`)}</a>
+            {NAV_LINKS.map((item) => (
+              <a
+                key={item.key}
+                href={'path' in item ? lp(item.path) : `${lp('/')}#${item.hash}`}
+              >
+                {t(`footer.${item.key}`)}
+              </a>
             ))}
           </nav>
         </div>
@@ -92,7 +99,7 @@ export default function Footer() {
       </div>
 
       <div className={styles.bottom}>
-        <a href="/privacy">{t('footer.privacy')}</a>
+        <a href={lp('/privacy')}>{t('footer.privacy')}</a>
         <span className={styles.credit}>
           {t('footer.developedBy')}{' '}
           <a href="https://telebots.site/en" target="_blank" rel="noopener noreferrer">

@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from 'next'
 import { Montserrat } from 'next/font/google'
 import './globals.css'
 import Providers from './components/Providers'
-import JsonLd from './components/JsonLd'
 import { siteConfig } from '@/lib/site'
 
 const montserrat = Montserrat({
@@ -50,41 +49,10 @@ export const metadata: Metadata = {
       'max-video-preview': -1,
     },
   },
-  alternates: {
-    canonical: '/',
-    types: {
-      'application/rss+xml': [{ url: '/blog/feed.xml', title: 'CardProc Blog RSS' }],
-    },
-  },
-  openGraph: {
-    type: 'website',
-    locale: siteConfig.locale,
-    url: siteConfig.url,
-    siteName: siteConfig.name,
-    title: siteConfig.titleRu,
-    description: siteConfig.descriptionRu,
-    images: [
-      {
-        url: siteConfig.ogImage,
-        width: 1200,
-        height: 630,
-        alt: siteConfig.ogImageAlt,
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: siteConfig.titleRu,
-    description: siteConfig.descriptionRu,
-    images: [siteConfig.ogImage],
-  },
   category: 'finance',
   icons: {
     icon: siteConfig.ogImage,
     apple: siteConfig.ogImage,
-  },
-  other: {
-    'content-language': siteConfig.seo.contentLanguages,
   },
   ...(googleVerification
     ? { verification: { google: googleVerification } }
@@ -93,12 +61,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ru" className={montserrat.variable}>
+    <html lang="ru" className={montserrat.variable} suppressHydrationWarning>
       <head>
-        <link rel="alternate" type="application/rss+xml" title="CardProc Blog RSS" href="/blog/feed.xml" />
         <link rel="alternate" type="text/plain" href="/ai.txt" title="AI information" />
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM information" />
-        <JsonLd />
       </head>
       <body className={montserrat.className}>
         <Providers>{children}</Providers>
