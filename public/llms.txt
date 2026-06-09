@@ -11,8 +11,9 @@ CardProc helps businesses accept payments worldwide via Stripe.
 - Uptime: 99.9% with Payment routing failover
 - Experience: 7 years with Stripe, 1100+ accounts, $53M+ client volume
 - Withdrawals: EUR, USD, PLN, USDT and more
-- Languages: Russian (default), English
+- Languages: Russian (default UI), English (header switcher)
 - Contact: hello@cardproc.com, Telegram @cardproc
+- Disclaimer: CardProc is independent and not affiliated with Stripe, Inc.
 
 ## Key pages
 
@@ -20,6 +21,7 @@ CardProc helps businesses accept payments worldwide via Stripe.
 - Blog: /blog
 - Privacy policy: /privacy
 - Contact form: /#kontakt
+- Blog RSS: /blog/feed.xml
 
 ## Blog articles
 
@@ -45,9 +47,10 @@ CardProc helps businesses accept payments worldwide via Stripe.
 1. Turnkey infrastructure: foreign entity, bank account, Stripe account
 2. Payment processing for any niche from 1.5%
 3. Warmed Stripe accounts with turnover
-4. Free expert consultation and 24/7 Telegram support
+4. Payment routing with automatic failover
+5. Free expert consultation and 24/7 Telegram support
 
-## Sections on homepage
+## Homepage sections
 
 - /#services — Services
 - /#advantages — Advantages (uptime, accounts, tax, CRM, niches, withdrawals)
@@ -55,10 +58,12 @@ CardProc helps businesses accept payments worldwide via Stripe.
 - /#accounts — Accounts in operation
 - /#specialists — CardProc specialists
 - /#clients — Client niches
+- /#faq — FAQ
 - /#kontakt — Contact form
 
-## Crawling
+## Structured data
 
+- Organization, WebSite, FinancialService, FAQPage, HowTo, BlogPosting
 - Sitemap: /sitemap.xml
 - Robots: /robots.txt
 - AI info: /ai.txt

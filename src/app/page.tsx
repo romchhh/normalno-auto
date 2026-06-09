@@ -20,6 +20,19 @@ export const metadata: Metadata = buildPageMetadata({
   description: siteConfig.descriptionRu,
   path: '/',
   ogTitle: siteConfig.titleRu,
+  keywords: [
+    'процессинг Stripe',
+    'прогретые Stripe аккаунты',
+    'подключение Stripe',
+    'приём платежей Stripe',
+    'payment routing Stripe',
+    'Stripe processing',
+    'warmed Stripe accounts',
+    'international payments',
+    'high-risk Stripe',
+    'Stripe account setup',
+    'CardProc',
+  ],
 })
 
 export default function Home() {

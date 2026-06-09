@@ -6,6 +6,8 @@
 
 CardProc provides Stripe payment processing services worldwide. We offer warmed-up Stripe accounts, payment routing with 99.9% uptime, CRM access, tax-optimized jurisdictions, and unlimited withdrawals in EUR, USD, PLN, USDT and more.
 
+CardProc is an independent service and is not affiliated with, endorsed by, or a subsidiary of Stripe, Inc.
+
 ## Key facts
 
 - 1100+ Stripe accounts created for clients
@@ -14,13 +16,15 @@ CardProc provides Stripe payment processing services worldwide. We offer warmed-
 - Processing from 1.5%
 - 99.9% uptime with Payment routing failover
 - Free expert consultation for every client
+- Languages: Russian (default UI), English (language switcher)
 
-## Services
+## Core services
 
 - Turnkey setup: foreign company + bank account + Stripe
 - Stripe account setup and verification
 - Payment processing for any niche from 1.5%
 - Warmed Stripe accounts with turnover
+- Payment routing between backup Stripe accounts
 - CRM for transaction monitoring
 - Withdrawals to IBAN and USDT
 - 24/7 Telegram support
@@ -33,21 +37,23 @@ Marketplaces, SaaS, e-commerce, online/offline business, subscriptions, online c
 
 - Hero: accept payments worldwide with Stripe
 - Stats: 1100+ accounts, 7 years, $53M volume
-- Services: /#services
-- Advantages: /#advantages
-- How we work: /#how-we-work
-- Accounts in operation: /#accounts
-- Specialists: /#specialists
-- Clients: /#clients
-- Contact: /#kontakt
+- Services: https://cardproc.com/#services
+- Advantages: https://cardproc.com/#advantages
+- How we work: https://cardproc.com/#how-we-work
+- Accounts in operation: https://cardproc.com/#accounts
+- Specialists: https://cardproc.com/#specialists
+- Clients: https://cardproc.com/#clients
+- FAQ: https://cardproc.com/#faq
+- Contact: https://cardproc.com/#kontakt
 
 ## Pages
 
 - Home: https://cardproc.com/
 - Blog: https://cardproc.com/blog
 - Privacy policy: https://cardproc.com/privacy
+- Blog RSS: https://cardproc.com/blog/feed.xml
 
-## Blog articles
+## Blog articles (16)
 
 - Stripe для вашего бизнеса: https://cardproc.com/blog/stripe-for-your-business
 - Подключение Stripe через PHP с помощью API: https://cardproc.com/blog/stripe-via-php-api
@@ -73,15 +79,12 @@ Marketplaces, SaaS, e-commerce, online/offline business, subscriptions, online c
 - Telegram operator: https://t.me/cardproc
 - Website: https://cardproc.com
 
-## Languages
-
-Russian (default), English — language switcher in header
-
 ## SEO & crawling
 
-- Sitemap: /sitemap.xml
-- Robots: /robots.txt
-- LLM info: /llms.txt
+- Sitemap: https://cardproc.com/sitemap.xml
+- Robots: https://cardproc.com/robots.txt
+- RSS feed: https://cardproc.com/blog/feed.xml
+- LLM info: https://cardproc.com/llms.txt
 
 ## Attribution
 

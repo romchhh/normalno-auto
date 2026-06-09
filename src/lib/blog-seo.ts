@@ -84,6 +84,11 @@ export function estimateWordCount(body: string): number {
   return body.split(/\s+/).filter(Boolean).length
 }
 
+function excerptArticleBody(body: string, maxLength = 500): string {
+  const plain = body.replace(/[#*_`[\]]/g, '').replace(/\n+/g, ' ').trim()
+  return plain.length <= maxLength ? plain : `${plain.slice(0, maxLength).trim()}…`
+}
+
 export function buildBlogPostingJsonLd(post: BlogPost, locale: BlogLocale = 'ru') {
   const view = post[locale]
   const path = `/blog/${post.slug}`
@@ -112,8 +117,14 @@ export function buildBlogPostingJsonLd(post: BlogPost, locale: BlogLocale = 'ru'
     articleSection: view.category,
     keywords: getPostKeywords(post, locale).join(', '),
     wordCount: estimateWordCount(view.body),
+    articleBody: excerptArticleBody(view.body),
+    about: getPostKeywords(post, locale).slice(0, 4).map((name) => ({
+      '@type': 'Thing',
+      name,
+    })),
     inLanguage: locale === 'en' ? 'en' : 'ru',
     isAccessibleForFree: true,
+    isPartOf: { '@id': `${siteConfig.url}/blog#blog` },
     url,
   }
 }

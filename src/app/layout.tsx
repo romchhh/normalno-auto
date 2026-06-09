@@ -12,6 +12,8 @@ const montserrat = Montserrat({
   variable: '--font-montserrat',
 })
 
+const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+
 export const viewport: Viewport = {
   themeColor: siteConfig.themeColor,
   width: 'device-width',
@@ -49,16 +51,14 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    languages: {
-      'ru-RU': '/',
-      'en-US': '/',
-      'x-default': '/',
+    canonical: '/',
+    types: {
+      'application/rss+xml': [{ url: '/blog/feed.xml', title: 'CardProc Blog RSS' }],
     },
   },
   openGraph: {
     type: 'website',
     locale: siteConfig.locale,
-    alternateLocale: [siteConfig.alternateLocale],
     url: siteConfig.url,
     siteName: siteConfig.name,
     title: siteConfig.titleRu,
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
       {
         url: siteConfig.ogImage,
         width: 1200,
-        height: 900,
+        height: 630,
         alt: siteConfig.ogImageAlt,
       },
     ],
@@ -83,12 +83,19 @@ export const metadata: Metadata = {
     icon: siteConfig.ogImage,
     apple: siteConfig.ogImage,
   },
+  other: {
+    'content-language': siteConfig.seo.contentLanguages,
+  },
+  ...(googleVerification
+    ? { verification: { google: googleVerification } }
+    : {}),
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ru" className={montserrat.variable}>
       <head>
+        <link rel="alternate" type="application/rss+xml" title="CardProc Blog RSS" href="/blog/feed.xml" />
         <link rel="alternate" type="text/plain" href="/ai.txt" title="AI information" />
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM information" />
         <JsonLd />

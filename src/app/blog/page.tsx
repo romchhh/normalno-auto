@@ -2,25 +2,38 @@ import type { Metadata } from 'next'
 import Navbar from '../components/Navbar'
 import BlogPage from '../components/BlogPage'
 import Footer from '../components/Footer'
+import Breadcrumbs from '../components/seo/Breadcrumbs'
 import JsonLdScript from '../components/seo/JsonLdScript'
 import { buildBlogItemListJsonLd } from '@/lib/blog-seo'
 import { getAllPosts } from '@/lib/blog'
 import { buildBreadcrumbJsonLd, buildGraphJsonLd, buildPageMetadata, buildWebPageJsonLd } from '@/lib/seo'
 import { siteConfig } from '@/lib/site'
 
-export const metadata: Metadata = buildPageMetadata({
-  title: siteConfig.pages.blog.title,
-  description: siteConfig.pages.blog.description,
-  path: '/blog',
-  keywords: [
-    'блог CardProc',
-    'статьи Stripe',
-    'процессинг платежей',
-    'интеграция Stripe',
-    'Stripe blog',
-    'payment processing articles',
-  ],
-})
+export const metadata: Metadata = {
+  ...buildPageMetadata({
+    title: siteConfig.pages.blog.title,
+    description: siteConfig.pages.blog.description,
+    path: '/blog',
+    keywords: [
+      'блог CardProc',
+      'статьи Stripe',
+      'процессинг платежей',
+      'интеграция Stripe',
+      'payment routing',
+      'Stripe webhooks',
+      'Stripe blog',
+      'payment processing articles',
+      'high-risk Stripe',
+      'международные платежи',
+    ],
+  }),
+  alternates: {
+    canonical: '/blog',
+    types: {
+      'application/rss+xml': [{ url: '/blog/feed.xml', title: 'CardProc Blog RSS' }],
+    },
+  },
+}
 
 const posts = getAllPosts()
 
@@ -60,6 +73,12 @@ export default function Blog() {
     <>
       <JsonLdScript data={buildGraphJsonLd([breadcrumb, webPage, blogSchema, itemList])} />
       <Navbar />
+      <Breadcrumbs
+        items={[
+          { name: 'CardProc', path: '/' },
+          { name: 'Блог', path: '/blog' },
+        ]}
+      />
       <main>
         <BlogPage />
       </main>

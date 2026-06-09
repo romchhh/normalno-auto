@@ -28,6 +28,10 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: 'ClaudeBot',
         allow: '/',
       },
+      {
+        userAgent: 'PerplexityBot',
+        allow: '/',
+      },
     ],
     sitemap: `${siteConfig.url}/sitemap.xml`,
     host: siteConfig.url,

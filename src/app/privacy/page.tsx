@@ -10,6 +10,12 @@ export const metadata: Metadata = buildPageMetadata({
   title: siteConfig.pages.privacy.title,
   description: siteConfig.pages.privacy.description,
   path: '/privacy',
+  keywords: [
+    'политика конфиденциальности CardProc',
+    'privacy policy',
+    'обработка персональных данных',
+    'Stripe processing privacy',
+  ],
 })
 
 const breadcrumb = buildBreadcrumbJsonLd([

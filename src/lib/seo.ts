@@ -17,13 +17,78 @@ type ArticleMetaInput = {
   image: string
   imageAlt: string
   publishedTime: string
+  modifiedTime?: string
   category: string
   keywords?: string[]
   ogTitle?: string
 }
 
+const googleBot = {
+  index: true,
+  follow: true,
+  'max-image-preview': 'large' as const,
+  'max-snippet': -1,
+  'max-video-preview': -1,
+}
+
 export function absoluteUrl(path: string) {
   return `${siteConfig.url}${path.startsWith('/') ? path : `/${path}`}`
+}
+
+function buildSharedMeta({
+  title,
+  description,
+  keywords,
+  ogTitle,
+  path,
+  noIndex = false,
+}: {
+  title: string
+  description: string
+  keywords?: string[]
+  ogTitle?: string
+  path: string
+  noIndex?: boolean
+}) {
+  const url = absoluteUrl(path)
+
+  return {
+    title,
+    description,
+    keywords: keywords ?? siteConfig.keywords,
+    alternates: noIndex
+      ? undefined
+      : {
+          canonical: path,
+        },
+    robots: noIndex
+      ? { index: false, follow: false }
+      : { index: true, follow: true, googleBot },
+    other: {
+      'content-language': siteConfig.seo.contentLanguages,
+    },
+    openGraph: {
+      locale: siteConfig.locale,
+      url,
+      siteName: siteConfig.name,
+      title: ogTitle ?? title,
+      description,
+      images: [
+        {
+          url: siteConfig.ogImage,
+          width: 1200,
+          height: 630,
+          alt: siteConfig.ogImageAlt,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image' as const,
+      title: ogTitle ?? title,
+      description,
+      images: [siteConfig.ogImage],
+    },
+  }
 }
 
 export function buildPageMetadata({
@@ -34,45 +99,13 @@ export function buildPageMetadata({
   ogTitle,
   noIndex = false,
 }: PageMetaInput): Metadata {
-  const url = absoluteUrl(path)
+  const shared = buildSharedMeta({ title, description, keywords, ogTitle, path, noIndex })
 
   return {
-    title,
-    description,
-    keywords: keywords ?? siteConfig.keywords,
-    alternates: {
-      canonical: path,
-      languages: {
-        'ru-RU': path,
-        'en-US': path,
-        'x-default': path,
-      },
-    },
-    robots: noIndex
-      ? { index: false, follow: false }
-      : { index: true, follow: true, googleBot: { index: true, follow: true } },
+    ...shared,
     openGraph: {
+      ...shared.openGraph,
       type: 'website',
-      locale: siteConfig.locale,
-      alternateLocale: [siteConfig.alternateLocale],
-      url,
-      siteName: siteConfig.name,
-      title: ogTitle ?? title,
-      description,
-      images: [
-        {
-          url: siteConfig.ogImage,
-          width: 1200,
-          height: 900,
-          alt: siteConfig.ogImageAlt,
-        },
-      ],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: ogTitle ?? title,
-      description,
-      images: [siteConfig.ogImage],
     },
   }
 }
@@ -84,39 +117,31 @@ export function buildArticleMetadata({
   image,
   imageAlt,
   publishedTime,
+  modifiedTime,
   category,
   keywords,
   ogTitle,
 }: ArticleMetaInput): Metadata {
-  const url = absoluteUrl(path)
+  const shared = buildSharedMeta({
+    title: `${title} | CardProc`,
+    description,
+    keywords,
+    ogTitle: ogTitle ?? title,
+    path,
+  })
   const ogImage = image.startsWith('http') ? image : absoluteUrl(image)
-  const pageTitle = `${title} | CardProc`
 
   return {
-    title: pageTitle,
-    description,
-    keywords: keywords ?? siteConfig.keywords,
-    alternates: {
-      canonical: path,
-      languages: {
-        'ru-RU': path,
-        'en-US': path,
-        'x-default': path,
-      },
-    },
-    robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+    ...shared,
+    title: `${title} | CardProc`,
     openGraph: {
+      ...shared.openGraph,
       type: 'article',
-      locale: siteConfig.locale,
-      alternateLocale: [siteConfig.alternateLocale],
-      url,
-      siteName: siteConfig.name,
-      title: ogTitle ?? pageTitle,
-      description,
       publishedTime,
-      modifiedTime: publishedTime,
+      modifiedTime: modifiedTime ?? publishedTime,
       section: category,
       authors: [siteConfig.name],
+      tags: keywords,
       images: [
         {
           url: ogImage,
@@ -127,9 +152,7 @@ export function buildArticleMetadata({
       ],
     },
     twitter: {
-      card: 'summary_large_image',
-      title: ogTitle ?? pageTitle,
-      description,
+      ...shared.twitter,
       images: [ogImage],
     },
   }
@@ -159,10 +182,12 @@ export function buildWebPageJsonLd({
   title,
   description,
   path,
+  dateModified,
 }: {
   title: string
   description: string
   path: string
+  dateModified?: string
 }) {
   return {
     '@context': 'https://schema.org',
@@ -174,5 +199,15 @@ export function buildWebPageJsonLd({
     isPartOf: { '@id': `${siteConfig.url}/#website` },
     about: { '@id': `${siteConfig.url}/#service` },
     inLanguage: ['ru', 'en'],
+    ...(dateModified ? { dateModified } : {}),
   }
+}
+
+export function escapeXml(value: string): string {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;')
 }

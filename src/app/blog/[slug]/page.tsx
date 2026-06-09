@@ -4,6 +4,7 @@ import Navbar from '../../components/Navbar'
 import BlogPostPage from '../../components/BlogPostPage'
 import Footer from '../../components/Footer'
 import ScrollReveal from '../../components/ScrollReveal'
+import Breadcrumbs from '../../components/seo/Breadcrumbs'
 import JsonLdScript from '../../components/seo/JsonLdScript'
 import { buildBlogPostingJsonLd, getPostKeywords } from '@/lib/blog-seo'
 import { buildArticleMetadata, buildBreadcrumbJsonLd, buildGraphJsonLd, buildWebPageJsonLd } from '@/lib/seo'
@@ -75,6 +76,13 @@ export default function BlogPost({ params }: Props) {
     <>
       <JsonLdScript data={graph} />
       <Navbar />
+      <Breadcrumbs
+        items={[
+          { name: 'CardProc', path: '/' },
+          { name: 'Блог', path: '/blog' },
+          { name: post.ru.title, path },
+        ]}
+      />
       <main>
         <ScrollReveal>
           <BlogPostPage post={post} related={related} />

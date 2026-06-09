@@ -3,10 +3,14 @@ export const siteConfig = {
   title: 'CardProc — Stripe Payment Processing',
   titleRu:
     'CardProc — процессинг Stripe от 1.5% | Прогретые аккаунты и приём платежей',
+  titleEn:
+    'CardProc — Stripe Processing from 1.5% | Warmed Accounts & Payment Acceptance',
   description:
     'Stripe payment processing for any niche from 1.5%. Warmed-up accounts, 99.9% uptime, CRM access and unlimited withdrawals in EUR, USD, PLN and USDT.',
   descriptionRu:
     'Процессинг Stripe под любые ниши от 1.5%. Прогретые аккаунты с оборотом, аптайм 99.9%, CRM, вывод в EUR/USD/USDT. Бесплатная консультация эксперта.',
+  descriptionEn:
+    'Stripe payment processing for any niche from 1.5%. Warmed accounts, 99.9% uptime, CRM and withdrawals in EUR, USD, USDT. Free expert consultation.',
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://cardproc.com',
   email: 'hello@cardproc.com',
   telegram: '@cardproc',
@@ -26,6 +30,9 @@ export const siteConfig = {
     'card processing',
     'international payments',
     'high-risk processing',
+    'payment routing',
+    'Stripe integration',
+    'Stripe Connect',
     'прогретые Stripe аккаунты',
     'процессинг Stripe',
     'приём платежей',
@@ -33,15 +40,50 @@ export const siteConfig = {
     'международные платежи',
     'процессинг платежей',
     'Stripe для бизнеса',
+    'аренда Stripe аккаунта',
+    'Stripe high-risk',
+    'Stripe СНГ',
+    'вывод средств Stripe',
+    'Stripe CRM',
   ],
+  seo: {
+    slogan: 'Международный процессинг Stripe от 1.5%',
+    disclaimer:
+      'CardProc — независимый сервис и не является аффилированным лицом, партнёром или дочерней компанией Stripe, Inc.',
+    disclaimerEn:
+      'CardProc is an independent service and is not affiliated with, endorsed by, or a subsidiary of Stripe, Inc.',
+    contentLanguages: 'ru, en',
+    knowsAbout: [
+      'Stripe payment processing',
+      'Stripe account setup',
+      'Warmed Stripe accounts',
+      'Payment routing',
+      'International payment acceptance',
+      'High-risk payment processing',
+      'Stripe API integration',
+      'E-commerce checkout',
+      'PCI DSS compliance',
+      'Chargeback management',
+      'Stripe webhooks',
+      'Cross-border payments',
+    ],
+    stats: {
+      accountsCreated: 1100,
+      yearsExperience: 7,
+      clientVolume: '$53M+',
+      uptime: '99.9%',
+      commissionFrom: '1.5%',
+    },
+    areaServed: ['Worldwide', 'European Union', 'United Kingdom', 'United States', 'CIS'],
+  },
   pages: {
     blog: {
       title: 'Блог CardProc — Stripe, процессинг и интеграции',
       titleEn: 'CardProc Blog — Stripe, processing and integrations',
       description:
-        'Статьи CardProc о процессинге Stripe, прогретых аккаунтах, интеграциях и приёме международных платежей для бизнеса.',
+        'Статьи CardProc о процессинге Stripe, прогретых аккаунтах, интеграциях, payment routing и приёме международных платежей для бизнеса.',
       descriptionEn:
-        'CardProc articles on Stripe processing, warmed accounts, integrations and accepting international payments.',
+        'CardProc articles on Stripe processing, warmed accounts, integrations, payment routing and accepting international payments.',
     },
     privacy: {
       title: 'Политика конфиденциальности CardProc',
