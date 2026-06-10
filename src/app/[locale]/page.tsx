@@ -10,6 +10,7 @@ import HowWeWorkSection from '../components/HowWeWorkSection'
 import ClientsSection from '../components/ClientsSection'
 import FaqSection from '../components/FaqSection'
 import ContactSection from '../components/ContactSection'
+import SeoTextSection from '../components/SeoTextSection'
 import Footer from '../components/Footer'
 import ScrollReveal from '../components/ScrollReveal'
 import JsonLd from '../components/JsonLd'
@@ -29,16 +30,7 @@ export function generateMetadata({ params }: Props): Metadata {
       path: '/',
       locale: 'en',
       ogTitle: siteConfig.titleEn,
-      keywords: [
-        'Stripe processing',
-        'warmed Stripe accounts',
-        'Stripe integration',
-        'payment routing',
-        'international payments',
-        'high-risk Stripe',
-        'Stripe account setup',
-        siteConfig.name,
-      ],
+      keywords: siteConfig.keywords,
     })
   }
 
@@ -48,16 +40,7 @@ export function generateMetadata({ params }: Props): Metadata {
     path: '/',
     locale: 'ru',
     ogTitle: siteConfig.titleRu,
-    keywords: [
-      'процессинг Stripe',
-      'прогретые Stripe аккаунты',
-      'подключение Stripe',
-      'приём платежей Stripe',
-      'payment routing Stripe',
-      'международные платежи',
-      'high-risk Stripe',
-      siteConfig.name,
-    ],
+    keywords: siteConfig.keywords,
   })
 }
 
@@ -79,6 +62,7 @@ export default function Home({ params }: Props) {
         <ScrollReveal delay={80}><ClientsSection /></ScrollReveal>
         <ScrollReveal delay={80}><FaqSection /></ScrollReveal>
         <ScrollReveal delay={80}><ContactSection /></ScrollReveal>
+        <SeoTextSection />
       </main>
       <ScrollReveal delay={80}><Footer /></ScrollReveal>
     </>

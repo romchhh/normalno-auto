@@ -52,6 +52,7 @@ export default function ServicesSection() {
           {/* Payment processing */}
           <article className={styles.card}>
             <h3 className={styles.title}>{t('services.processing.title')}</h3>
+            <p className={styles.desc}>{t('services.processing.intro')}</p>
             <p className={styles.rate}>
               <strong>{t('services.processing.rate')}</strong>
               {t('services.processing.rateSuffix')}

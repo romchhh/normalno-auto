@@ -28,8 +28,13 @@ export default function Hero() {
           <div className={styles.textBlock}>
             <div className={styles.heroCenter}>
               <h1 className={styles.headline}>
-                {t('hero.headline')}{' '}
-                <em className={styles.stripe}>{t('hero.stripe')}</em>
+                {t('hero.headline')}
+                {t('hero.stripe') ? (
+                  <>
+                    {' '}
+                    <em className={styles.stripe}>{t('hero.stripe')}</em>
+                  </>
+                ) : null}
               </h1>
 
               <p className={styles.badge}>{t('hero.badge')}</p>

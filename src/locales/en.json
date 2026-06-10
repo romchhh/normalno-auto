@@ -1,6 +1,8 @@
 {
   "seo": {
     "heroImageAlt": "WayOfProcessing — international Stripe payment processing with warmed accounts",
+    "bottomTitle": "Turnkey Stripe Account Processing — WayOfProcessing",
+    "bottomText": "WayOfProcessing is a turnkey Stripe account processing service. We offer buy and rent options for verified warmed Stripe accounts with up to $500,000/month volume. We work with any niche: e-commerce, SaaS, subscriptions, forex and high-risk. Accept international payments via Stripe without registering a foreign company yourself.\n\nWithdraw funds in EUR, USD, PLN to any IBAN, or in USDT with no limits. Free consultation to match the right Stripe account to your niche.",
     "faqHeading": "Frequently asked questions about Stripe processing",
     "faq": [
       {
@@ -42,8 +44,8 @@
     "openContact": "Leave a request"
   },
   "hero": {
-    "headline": "Accept payments from anywhere in the world with",
-    "stripe": "Stripe",
+    "headline": "Buy or Rent a Warmed Stripe Account — Turnkey Payment Processing",
+    "stripe": "",
     "badge": "Processing for any niche from 1.5%",
     "description": "Our warmed-up accounts tailored for different volumes — for industry professionals and aspiring entrepreneurs alike.",
     "cardLabel": "Leave a request",
@@ -82,7 +84,7 @@
     "heading": "Our services",
     "more": "Learn more",
     "complex": {
-      "title": "Comprehensive solutions: Company + Bank account + Stripe",
+      "title": "Company registration + bank account + Stripe",
       "desc": "Full turnkey business registration package in various jurisdictions.",
       "jurisdictionsLabel": "Available jurisdictions",
       "flags": {
@@ -95,7 +97,8 @@
       }
     },
     "processing": {
-      "title": "Payment processing",
+      "title": "Turnkey Stripe account processing",
+      "intro": "Full Stripe account processing service: rent a ready warmed account with turnover history or get a new account connected within 3 days.",
       "rate": "2%",
       "rateSuffix": " + of turnover",
       "items": {
@@ -120,8 +123,8 @@
     }
   },
   "accounts": {
-    "heading": "Accounts in operation",
-    "lead": "Warmed Stripe accounts with turnover are always available",
+    "heading": "Buy or rent ready Stripe accounts",
+    "lead": "Verified warmed accounts with up to $500,000/month volume always available",
     "desc": "If one account fails, payments are automatically routed to another warmed Stripe account via our «Payment routing» solution.",
     "imageAlt": "Stripe account screenshot {{number}}",
     "prev": "Previous slide",
