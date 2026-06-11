@@ -17,7 +17,8 @@ import SeoTextSection from './components/SeoTextSection'
 import Footer from './components/Footer'
 import ScrollReveal from './components/ScrollReveal'
 import SectionBlurDivider from './components/SectionBlurDivider'
-import JsonLd from './components/JsonLd'
+import JsonLdScript from './components/seo/JsonLdScript'
+import { buildHomeJsonLd } from '@/lib/home-schema'
 import { buildPageMetadata } from '@/lib/seo'
 import { siteConfig } from '@/lib/site'
 
@@ -34,7 +35,7 @@ export const metadata: Metadata = buildPageMetadata({
 export default function Home() {
   return (
     <>
-      <JsonLd locale="uk" />
+      <JsonLdScript data={buildHomeJsonLd('uk')} />
       <Navbar transparent />
       <main>
         <Hero />

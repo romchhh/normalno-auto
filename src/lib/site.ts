@@ -1,20 +1,13 @@
 export const siteConfig = {
   name: 'Нормально авто',
   legalName: 'Нормально авто',
-  title: 'Нормально авто — оновлення автомобіля через справедливий лізинг',
-  titleUk:
-    'Нормально авто — оновлення авто 2007–2015 | Справедливий лізинг у Києві',
-  description:
-    'Допомагаємо власникам автомобілів 2007–2015 року пересісти на авто за 15 000–25 000$ з комфортним платежем та зрозумілим виходом через 3 роки.',
   descriptionUk:
     'Нормально авто — ліцензована фінансова компанія в Києві. Допомагаємо власникам авто 2007–2015 року пересісти на автомобіль за $15 000–25 000 з комфортним платежем 400–600$/міс, трейд-ін та гарантованим виходом через 3 роки.',
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://normalno-auto.com',
   email: 'info@normalno-auto.com',
   phone: '+380000000000',
-  telegram: '@NormalnoAutoBot',
   telegramBotUrl: 'https://t.me/NormalnoAutoBot',
   telegramChannelUrl: 'https://t.me/normalno_ua1',
-  telegramOperatorUrl: 'https://t.me/NormalnoAutoBot',
   instagramUrl: 'https://www.instagram.com/normalno.in.ua/',
   tiktokUrl: 'https://www.tiktok.com/@normalno.in.ua',
   mapsUrl: 'https://maps.app.goo.gl/piB5JL3JR84pL8VA7?g_st=ic',
@@ -78,10 +71,6 @@ export const siteConfig = {
   ],
   seo: {
     slogan: 'Справедливий лізинг для оновлення вашого авто',
-    tagline: 'Оновлення авто 2007–2015 без стресу та великих витрат',
-    disclaimer:
-      'Нормально авто — ліцензована фінансова компанія. Умови лізингу визначаються індивідуальним договором.',
-    contentLanguages: 'uk',
     knowsAbout: [
       'Справедливий лізинг автомобілів',
       'Трейд-ін авто',

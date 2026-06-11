@@ -71,7 +71,7 @@ export function buildHomeJsonLd(locale: Locale) {
           contactType: 'customer support',
           email: siteConfig.email,
           telephone: siteConfig.phone,
-          url: siteConfig.telegramOperatorUrl,
+          url: siteConfig.telegramBotUrl,
           availableLanguage: ['Ukrainian'],
           areaServed: siteConfig.seo.areaServed,
         },

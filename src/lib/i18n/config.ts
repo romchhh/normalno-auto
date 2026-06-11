@@ -26,10 +26,6 @@ export function getLocaleFromPathname(pathname: string): Locale | null {
   return segment && isValidLocale(segment) ? segment : null
 }
 
-export function switchLocalePath(pathname: string, locale: Locale): string {
-  return localePath(stripLocalePrefix(pathname), locale)
-}
-
 export function localeOgLocale(locale: Locale): string {
   return locale === 'uk' ? 'uk_UA' : 'uk_UA'
 }
