@@ -52,7 +52,12 @@ export function buildHomeJsonLd(locale: Locale) {
           areaServed: siteConfig.seo.areaServed,
         },
       ],
-      sameAs: [siteConfig.telegramChannelUrl, siteConfig.telegramOperatorUrl, siteConfig.telegramBotUrl],
+      sameAs: [
+        siteConfig.telegramChannelUrl,
+        siteConfig.telegramBotUrl,
+        siteConfig.instagramUrl,
+        siteConfig.tiktokUrl,
+      ],
     },
     {
       '@type': ['FinancialService', 'LocalBusiness'],

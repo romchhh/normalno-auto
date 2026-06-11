@@ -3,7 +3,7 @@
 import { useTranslation } from 'react-i18next'
 import { siteConfig } from '@/lib/site'
 import { useLocalizedPath } from '@/lib/i18n/use-locale'
-import { TelegramIcon, SupportIcon } from './icons/SocialIcons'
+import { InstagramIcon, TelegramIcon, TikTokIcon, SupportIcon } from './icons/SocialIcons'
 import { useContactModal } from './ContactModalProvider'
 import styles from './Footer.module.css'
 
@@ -22,16 +22,28 @@ export default function Footer() {
 
   const contactItems = [
     {
+      key: 'telegramOperator' as const,
+      href: siteConfig.telegramBotUrl,
+      icon: <TelegramIcon size={20} />,
+      iconClass: styles.contactIconTelegram,
+    },
+    {
       key: 'telegramChannel' as const,
       href: siteConfig.telegramChannelUrl,
       icon: <TelegramIcon size={20} />,
       iconClass: styles.contactIconTelegram,
     },
     {
-      key: 'telegramOperator' as const,
-      href: siteConfig.telegramOperatorUrl,
-      icon: <TelegramIcon size={20} />,
-      iconClass: styles.contactIconTelegram,
+      key: 'instagram' as const,
+      href: siteConfig.instagramUrl,
+      icon: <InstagramIcon size={20} />,
+      iconClass: styles.contactIconInstagram,
+    },
+    {
+      key: 'tiktok' as const,
+      href: siteConfig.tiktokUrl,
+      icon: <TikTokIcon size={20} />,
+      iconClass: styles.contactIconTiktok,
     },
     {
       key: 'support247' as const,

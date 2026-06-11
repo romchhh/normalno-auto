@@ -6,32 +6,17 @@
 
 Нормально авто — ліцензована фінансова компанія в Києві. Допомагаємо власникам автомобілів 2007–2015 року пересісти на авто за $15 000–25 000 з комфортним платежем 400–600$/міс, трейд-ін та гарантованим виходом через 3 роки.
 
-## Services
+## Contact & Social
 
-- Програма оновлення автомобіля 2007–2015
-- Справедливий фінансовий лізинг
-- Трейд-ін (авто як перший внесок)
-- Підбір автомобіля класом вище
-- Гарантований вихід через 3 роки
-- Фінансова пауза до 30 днів
-- Партнерська програма для автосалонів (3% винагорода)
-
-## Key facts
-
-- Платіж: 400–600 USD/міс
-- Діапазон авто: $15 000–25 000
-- Місто: Київ, Україна
-- Мова сайту: українська
+- Website: https://normalno-auto.com
+- Email: info@normalno-auto.com
+- Telegram bot: https://t.me/NormalnoAutoBot
+- Telegram channel: https://t.me/normalno_ua1
+- Instagram: https://www.instagram.com/normalno.in.ua/
+- TikTok: https://www.tiktok.com/@normalno.in.ua
 
 ## Pages
 
 - /uk — головна (оновлення авто)
-- /uk/partneram — для партнерів (автосалони, дилери)
+- /uk/partneram — для партнерів
 - /uk/privacy — політика конфіденційності
-
-## Contact
-
-- Website: https://normalno-auto.com
-- Email: info@normalno-auto.com
-- Telegram: https://t.me/normalnoauto
-- Bot: https://t.me/normalnoauto_bot

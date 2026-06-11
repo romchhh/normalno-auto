@@ -12,15 +12,14 @@
 
 Ukrainian only (uk-UA)
 
-## Brand
-
-Нормально авто — ліцензована фінансова компанія, Київ, Україна
-
 ## Primary CTA
 
-Розрахувати оновлення авто: https://t.me/normalnoauto_bot
+Розрахувати оновлення авто: https://t.me/NormalnoAutoBot
 
-## Contact
+## Contact & Social
 
-- Telegram channel: https://t.me/normalnoauto
+- Telegram bot: https://t.me/NormalnoAutoBot
+- Telegram channel: https://t.me/normalno_ua1
+- Instagram: https://www.instagram.com/normalno.in.ua/
+- TikTok: https://www.tiktok.com/@normalno.in.ua
 - Email: info@normalno-auto.com
