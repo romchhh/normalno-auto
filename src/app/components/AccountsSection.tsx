@@ -6,10 +6,10 @@ import { useTranslation } from 'react-i18next'
 import styles from './AccountsSection.module.css'
 
 const ACCOUNT_IMAGES = [
-  '/images/accounts/aw1.webp',
-  '/images/accounts/aw2.webp',
-  '/images/accounts/aw4.webp',
-  '/images/accounts/aw5.webp',
+  { src: '/images/accounts/Group%202087327393.jpg', width: 2360, height: 1006 },
+  { src: '/images/accounts/Group%202087327394.jpg', width: 2258, height: 964 },
+  { src: '/images/accounts/Group%202087327395.jpg', width: 2372, height: 986 },
+  { src: '/images/accounts/Group%202087327396.jpg', width: 2372, height: 1030 },
 ] as const
 
 export default function AccountsSection() {
@@ -55,13 +55,14 @@ export default function AccountsSection() {
               className={styles.track}
               style={{ transform: `translateX(-${active * 100}%)` }}
             >
-              {ACCOUNT_IMAGES.map((src, index) => (
+              {ACCOUNT_IMAGES.map(({ src, width, height }, index) => (
                 <div key={src} className={styles.slide}>
                   <Image
                     src={src}
                     alt={t('accounts.imageAlt', { number: index + 1 })}
-                    width={900}
-                    height={600}
+                    width={width}
+                    height={height}
+                    sizes="(max-width: 768px) 100vw, 920px"
                     className={styles.image}
                     priority={index === 0}
                   />
@@ -82,7 +83,7 @@ export default function AccountsSection() {
           </button>
 
           <div className={styles.dots} role="tablist" aria-label={t('accounts.dotsLabel')}>
-            {ACCOUNT_IMAGES.map((src, index) => (
+            {ACCOUNT_IMAGES.map(({ src }, index) => (
               <button
                 key={src}
                 type="button"

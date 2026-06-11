@@ -30,10 +30,12 @@
   gap: 20px;
 }
 
-.bottomRow {
-  display: grid;
-  grid-template-columns: 1.65fr 1fr;
-  gap: 20px;
+.cardFintech {
+  gap: 22px;
+}
+
+.cardFintech .title {
+  max-width: none;
 }
 
 .card {
@@ -179,28 +181,38 @@
   transform: scale(1.1);
 }
 
-.fintechLogos {
+.fintechGrid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 28px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.fintechItem {
   display: flex;
-  gap: 12px;
-  align-items: center;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 10px;
+  font-size: var(--text-base);
+  line-height: var(--leading-body);
 }
 
-.fintechLogo {
-  width: 52px;
-  height: 52px;
-  border-radius: 12px;
-  object-fit: contain;
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.25s var(--ease-out);
+.fintechName {
+  font-weight: 600;
+  color: var(--gray-900);
 }
 
-.fintechLogoRevolut {
-  width: 44px;
-  height: 44px;
+.fintechLink {
+  color: var(--gray-500);
+  text-decoration: none;
+  transition: color 0.2s;
 }
 
-.fintechLogo:hover {
-  transform: scale(1.08);
+.fintechLink:hover {
+  color: var(--stripe-blue);
 }
 
 .cta {
@@ -257,9 +269,14 @@
   z-index: 1;
 }
 
+@media (min-width: 1024px) {
+  .fintechGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 900px) {
-  .topRow,
-  .bottomRow {
+  .topRow {
     grid-template-columns: 1fr;
   }
 }
@@ -271,6 +288,10 @@
 
   .card {
     padding: 24px;
+  }
+
+  .fintechGrid {
+    grid-template-columns: 1fr;
   }
 
   .cta {

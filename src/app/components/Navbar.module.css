@@ -21,9 +21,7 @@
   border-bottom: 1px solid rgba(10, 37, 64, 0.06);
 }
 
-/* Hero — білий текст */
-.navLight .brand,
-.navLight .brand span,
+/* Hero — білий текст (лого завжди окремо) */
 .navLight .center a,
 .navLight .center a:hover,
 .navLight .center .activeLink {
@@ -35,13 +33,8 @@
 }
 
 /* Після скролу — чорний текст */
-.navDark .brand,
 .navDark .center a {
   color: var(--gray-900);
-}
-
-.navDark .brand span {
-  color: var(--stripe-blue);
 }
 
 .navDark .center a:hover {
@@ -64,11 +57,17 @@
   letter-spacing: -0.03em;
   text-decoration: none;
   flex-shrink: 0;
+  color: #fff;
   transition: color 0.35s;
 }
 
 .brand span {
+  color: var(--stripe-blue);
   transition: color 0.35s;
+}
+
+.navDark .brand {
+  color: var(--gray-900);
 }
 
 .center {

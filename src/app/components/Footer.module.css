@@ -41,7 +41,7 @@
   font-weight: 400;
   font-size: 22px;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--stripe-blue);
 }
 
 .copyright {

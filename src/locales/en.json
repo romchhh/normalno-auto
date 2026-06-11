@@ -52,13 +52,13 @@
     "openContact": "Leave a request"
   },
   "hero": {
-    "headline": "Buy Verified Stripe Account — Stripe Account for Sale",
-    "stripe": "",
-    "badge": "Buy Stripe account with instant delivery from 1.5%",
-    "description": "Stripe account for sale — buy a verified warmed account or rent a ready one with turnover history. Instant delivery for business owners who need to accept payments fast.",
+    "headline": "Accept payments from anywhere in the world with",
+    "stripe": "Stripe",
+    "badge": "Processing for any niche from 1.5%",
+    "description": "Our warmed-up accounts tailored for different volumes — for industry professionals and aspiring entrepreneurs alike.",
     "cardLabel": "Leave a request",
     "cardHighlight": "from 1.5%",
-    "cardSub": "Buy or rent a Stripe account"
+    "cardSub": "Stripe account setup for your niche"
   },
   "specialists": {
     "heading": "Contact WayOfProcessing specialists to work with Stripe.",
@@ -105,10 +105,10 @@
       }
     },
     "processing": {
-      "title": "Turnkey Stripe account processing",
-      "intro": "Buy a verified Stripe business account or rent a ready warmed account. Stripe accounts for sale and new account setup — from 3 days.",
-      "rate": "2%",
-      "rateSuffix": " + of turnover",
+      "title": "Payment processing",
+      "intro": "Turnkey Stripe account setup: API, Payment Link, payment routing and international payment acceptance for any niche.",
+      "rate": "1.5%",
+      "rateSuffix": " of turnover",
       "items": {
         "api": "API integration with the client's website.",
         "cloaking": "«Payment cloaking» technology to hide the source of transactions.",
@@ -117,12 +117,7 @@
     },
     "fintech": {
       "title": "Ready-made fintech platform accounts",
-      "items": {
-        "revolut": "Revolut Personal / Business",
-        "wise": "Wise Personal / Business",
-        "airwallex": "Airwallex",
-        "other": "Other European fintech accounts."
-      }
+      "desc": "Verified European neobank and fintech accounts for business and Stripe withdrawals."
     },
     "support": {
       "title": "Support & consultation",

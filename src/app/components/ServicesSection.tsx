@@ -1,19 +1,12 @@
 'use client'
 
-import Image from 'next/image'
 import { useTranslation } from 'react-i18next'
+import { FINTECH_PLATFORMS } from '@/data/fintech-platforms'
 import { useContactModal } from './ContactModalProvider'
 import styles from './ServicesSection.module.css'
 
 const PROCESSING_ITEMS = ['api', 'cloaking', 'invoice'] as const
-const FINTECH_ITEMS = ['revolut', 'wise', 'airwallex', 'other'] as const
 const JURISDICTIONS = ['gb', 'hk', 'cy', 'pl', 'ee', 'cz'] as const
-
-const FINTECH_LOGOS = [
-  { key: 'revolut', src: '/images/logos/revolut.png', alt: 'Revolut' },
-  { key: 'wise', src: '/images/logos/wise.png', alt: 'Wise' },
-  { key: 'airwallex', src: '/images/logos/airwallex.png', alt: 'Airwallex' },
-] as const
 
 export default function ServicesSection() {
   const { t } = useTranslation()
@@ -26,11 +19,40 @@ export default function ServicesSection() {
 
         <div className={styles.grid}>
           <div className={styles.topRow}>
-          {/* Complex solutions */}
-          <article className={styles.card}>
-            <h3 className={styles.title}>{t('services.complex.title')}</h3>
-            <p className={styles.desc}>{t('services.complex.desc')}</p>
-            <div className={styles.cardFooter}>
+            <article className={styles.card}>
+              <h3 className={styles.title}>{t('services.complex.title')}</h3>
+              <p className={styles.desc}>{t('services.complex.desc')}</p>
+              <div className={styles.cardFooter}>
+                <a href="#kontakt" className={styles.more}>
+                  {t('services.more')}
+                  <span className={styles.moreArrow} aria-hidden="true">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M2 6 H10 M7 3 L10 6 L7 9" />
+                    </svg>
+                  </span>
+                </a>
+                <div className={styles.flags} aria-label={t('services.complex.jurisdictionsLabel')}>
+                  {JURISDICTIONS.map((code) => (
+                    <span key={code} className={styles.flag} title={t(`services.complex.flags.${code}`)}>
+                      {t(`services.complex.flags.${code}`)}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </article>
+
+            <article className={styles.card}>
+              <h3 className={styles.title}>{t('services.processing.title')}</h3>
+              <p className={styles.desc}>{t('services.processing.intro')}</p>
+              <p className={styles.rate}>
+                <strong>{t('services.processing.rate')}</strong>
+                {t('services.processing.rateSuffix')}
+              </p>
+              <ul className={styles.list}>
+                {PROCESSING_ITEMS.map((key) => (
+                  <li key={key}>{t(`services.processing.items.${key}`)}</li>
+                ))}
+              </ul>
               <a href="#kontakt" className={styles.more}>
                 {t('services.more')}
                 <span className={styles.moreArrow} aria-hidden="true">
@@ -39,27 +61,25 @@ export default function ServicesSection() {
                   </svg>
                 </span>
               </a>
-              <div className={styles.flags} aria-label={t('services.complex.jurisdictionsLabel')}>
-                {JURISDICTIONS.map((code) => (
-                  <span key={code} className={styles.flag} title={t(`services.complex.flags.${code}`)}>
-                    {t(`services.complex.flags.${code}`)}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </article>
+            </article>
+          </div>
 
-          {/* Payment processing */}
-          <article className={styles.card}>
-            <h3 className={styles.title}>{t('services.processing.title')}</h3>
-            <p className={styles.desc}>{t('services.processing.intro')}</p>
-            <p className={styles.rate}>
-              <strong>{t('services.processing.rate')}</strong>
-              {t('services.processing.rateSuffix')}
-            </p>
-            <ul className={styles.list}>
-              {PROCESSING_ITEMS.map((key) => (
-                <li key={key}>{t(`services.processing.items.${key}`)}</li>
+          <article className={`${styles.card} ${styles.cardFintech}`}>
+            <h3 className={styles.title}>{t('services.fintech.title')}</h3>
+            <p className={styles.desc}>{t('services.fintech.desc')}</p>
+            <ul className={styles.fintechGrid}>
+              {FINTECH_PLATFORMS.map(({ name, domain }) => (
+                <li key={domain} className={styles.fintechItem}>
+                  <span className={styles.fintechName}>{name}</span>
+                  <a
+                    href={`https://${domain}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.fintechLink}
+                  >
+                    {domain}
+                  </a>
+                </li>
               ))}
             </ul>
             <a href="#kontakt" className={styles.more}>
@@ -71,42 +91,7 @@ export default function ServicesSection() {
               </span>
             </a>
           </article>
-          </div>
 
-          <div className={styles.bottomRow}>
-          {/* Fintech accounts */}
-          <article className={styles.card}>
-            <h3 className={styles.title}>{t('services.fintech.title')}</h3>
-            <ul className={styles.list}>
-              {FINTECH_ITEMS.map((key) => (
-                <li key={key}>{t(`services.fintech.items.${key}`)}</li>
-              ))}
-            </ul>
-            <div className={styles.cardFooter}>
-              <a href="#kontakt" className={styles.more}>
-                {t('services.more')}
-                <span className={styles.moreArrow} aria-hidden="true">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M2 6 H10 M7 3 L10 6 L7 9" />
-                  </svg>
-                </span>
-              </a>
-              <div className={styles.fintechLogos}>
-                {FINTECH_LOGOS.map(({ key, src, alt }) => (
-                  <Image
-                    key={key}
-                    src={src}
-                    alt={alt}
-                    width={key === 'revolut' ? 44 : 52}
-                    height={key === 'revolut' ? 44 : 52}
-                    className={`${styles.fintechLogo} ${key === 'revolut' ? styles.fintechLogoRevolut : ''}`}
-                  />
-                ))}
-              </div>
-            </div>
-          </article>
-
-          {/* Support */}
           <article className={`${styles.card} ${styles.cardSupport}`}>
             <h3 className={styles.title}>{t('services.support.title')}</h3>
             <p className={styles.desc}>{t('services.support.desc')}</p>
@@ -124,7 +109,6 @@ export default function ServicesSection() {
               </svg>
             </div>
           </article>
-          </div>
         </div>
       </div>
     </section>
